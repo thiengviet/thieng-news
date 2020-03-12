@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
+import { Row, Col } from 'antd';
+import { Button } from 'antd';
 
 class Home extends Component {
   constructor() {
@@ -13,7 +15,17 @@ class Home extends Component {
   }
 
   render() {
-    return <p>{this.state.data}</p>
+    return <Fragment>
+      <Button type="primary">Button</Button>
+      <Row>
+        <Col span={12}>
+          <p>{this.state.data}</p>
+        </Col>
+        <Col span={12}>
+          <p>{this.state.data}</p>
+        </Col>
+      </Row>
+    </Fragment>
   }
 }
 
