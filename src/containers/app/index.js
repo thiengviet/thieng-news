@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import 'static/styles/index.css';
+import { Row, Col } from 'antd';
+import Header from 'containers/header';
 import Home from 'containers/home';
 
-import { setScreen } from 'modules/ui.reducer';
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    props.setScreen(window.innerWidth);
-  }
-
-  componentDidMount() {
-    window.onresize = () => {
-      this.props.setScreen(window.innerWidth);
-    }
-  }
 
   render() {
-    return <Switch>
-      <Redirect exact from="/" to="/home" />
-      <Route exact path="/home" component={Home} />
-      {/* <Route exact path="/user/:userId/:projectId?" component={User} /> */}
-    </Switch>
+    return <Fragment>
+      <Row gutter={[8, 8]}>
+        <Col span={24}>
+          <Header />
+        </Col>
+      </Row>
+      <Row gutter={[8, 8]}>
+        <Col span={24}>
+          <Switch>
+            <Redirect exact from="/" to="/home" />
+            <Route exact path="/home" component={Home} />
+            {/* <Route exact path="/user/:userId/:projectId?" component={User} /> */}
+          </Switch>
+        </Col>
+      </Row>
+    </Fragment>
   }
 }
 
@@ -34,7 +34,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  setScreen,
 }, dispatch);
 
 export default withRouter(connect(
