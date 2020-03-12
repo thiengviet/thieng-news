@@ -16,13 +16,12 @@ class Home extends Component {
 
   render() {
     return <Fragment>
-      <Button type="primary">Button</Button>
       <Row>
         <Col span={12}>
           <p>{this.state.data}</p>
         </Col>
         <Col span={12}>
-          <p>{this.state.data}</p>
+          <Button type="primary">Button</Button>
         </Col>
       </Row>
     </Fragment>
