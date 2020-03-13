@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
+import 'static/styles/index.css'
 import Header from 'containers/header';
 import Home from 'containers/home';
 

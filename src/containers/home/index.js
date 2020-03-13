@@ -3,25 +3,45 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import { Button } from 'antd';
+import { Typography, Button, Card } from 'antd';
+
+const { Text } = Typography;
 
 class Home extends Component {
   constructor() {
     super();
 
     this.state = {
-      data: 'Hello world'
+      data: 'Typography'
     }
   }
 
   render() {
     return <Fragment>
       <Row>
-        <Col span={12}>
-          <p>{this.state.data}</p>
+        <Col span={8}>
+          <Text>{this.state.data}</Text>
         </Col>
-        <Col span={12}>
+        <Col span={8}>
           <Button type="primary">Button</Button>
+        </Col>
+        <Col span={8}>
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
         </Col>
       </Row>
     </Fragment>
