@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { Typography, Button, Card } from 'antd';
+import { SearchOutlined, HeartFilled } from '@ant-design/icons';
+import { NeonButton } from 'components/buttons';
 
 const { Text } = Typography;
 
@@ -18,14 +20,25 @@ class Home extends Component {
 
   render() {
     return <Fragment>
-      <Row>
-        <Col span={8}>
+      <Row gutter={[8, 8]}>
+        <Col span={12} >
           <Text>{this.state.data}</Text>
         </Col>
-        <Col span={8}>
-          <Button type="primary">Button</Button>
+        <Col span={12} >
+          <Row gutter={[8, 8]}>
+            <Col xs={24} md={8}>
+              <Button type="primary">Button</Button>
+            </Col>
+            <Col xs={12} md={8}>
+              <Button shape="circle" icon={<SearchOutlined />} />
+            </Col>
+            <Col xs={12} md={8}>
+              <NeonButton color="#1be2ff" icon={<HeartFilled />}
+              />
+            </Col>
+          </Row>
         </Col>
-        <Col span={8}>
+        <Col span={24} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}

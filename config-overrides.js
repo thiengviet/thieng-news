@@ -18,6 +18,8 @@ module.exports = override(
       '@success-color': '#52c41a',
       '@warning-color': '#faad14',
       '@error-color': '#f5222d',
+      // Border
+      '@border-width-base': '0px',
       // Typography
       '@font-size-base': '14px',
       '@heading-color': 'rgba(0, 0, 0, 0.85)',
@@ -28,7 +30,6 @@ module.exports = override(
       '@btn-border-radius-base': '12px',
       '@btn-border-radius-sm': '12px',
       '@btn-primary-shadow': '0px 20px 30px 2px rgba(254, 83, 108, 0.25)',
-      '@btn-shadow': '0px 20px 30px 2px rgba(254, 83, 108, 0.25)',
       // Card
       '@card-radius': '24px',
     },

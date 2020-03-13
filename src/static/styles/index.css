@@ -1,3 +1,12 @@
+/* Button */
+
+.ant-btn-icon-only {
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Card */
+
 .ant-card {
     box-shadow: 0px 20px 30px 2px rgba(199, 213, 239, 0.45);
 }
