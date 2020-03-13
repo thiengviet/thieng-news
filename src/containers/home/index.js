@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { Typography, Button, Card } from 'antd';
 import { SearchOutlined, HeartFilled } from '@ant-design/icons';
-import { NeonButton } from 'components/buttons';
+import { IconOnlyButton, NeonButton } from 'components/buttons';
 
 const { Text } = Typography;
 
@@ -26,13 +26,16 @@ class Home extends Component {
         </Col>
         <Col span={12} >
           <Row gutter={[8, 8]}>
-            <Col xs={24} md={8}>
+            <Col xs={24} md={6}>
               <Button type="primary">Button</Button>
             </Col>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={6}>
               <Button shape="circle" icon={<SearchOutlined />} />
             </Col>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={6}>
+              <IconOnlyButton icon={<HeartFilled />}/>
+            </Col>
+            <Col xs={12} md={6}>
               <NeonButton color="#1be2ff" icon={<HeartFilled />}
               />
             </Col>

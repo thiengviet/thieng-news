@@ -2,17 +2,34 @@ import React, { cloneElement } from 'react';
 import PropTypes from "prop-types";
 import { Button } from 'antd';
 
+/**
+ * Icon only button
+ */
+function IconOnlyButton(props) {
+  return <Button {...props}
+    shape="circle"
+    style={{
+      ...props.style,
+      boxShadow: 'none',
+      background: 'transparent',
+    }}
+  />
+}
+IconOnlyButton.propTypes = {
+  icon: PropTypes.object.isRequired,
+}
+export { IconOnlyButton };
+
 
 /**
  * Neon button
  */
 function NeonButton(props) {
-  // props.icon.props.style = { filter: `drop-shadow(0px 12px 10px ${props.color}73)` }
   const icon = cloneElement(
     props.icon,
-    { style: { filter: `drop-shadow(0px 12px 10px ${props.color}73)` } }
+    { style: { filter: `drop-shadow(0px 20px 15px ${props.color}ff)` } }
   )
-  return <Button {...props}
+  return <IconOnlyButton {...props}
     shape="circle"
     style={{ color: props.color }}
     icon={icon}
