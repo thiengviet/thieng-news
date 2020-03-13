@@ -1,8 +1,12 @@
+/* Fix overflow */
+
+body {
+    overflow: hidden;
+}
+
 /* Button */
 
-.ant-btn-icon-only {
-    
-}
+.ant-btn-icon-only {}
 
 /* Card */
 

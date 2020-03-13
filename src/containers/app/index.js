@@ -21,7 +21,6 @@ class App extends Component {
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route exact path="/home" component={Home} />
-            {/* <Route exact path="/user/:userId/:projectId?" component={User} /> */}
           </Switch>
         </Col>
       </Row>

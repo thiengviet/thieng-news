@@ -18,7 +18,7 @@ class Header extends Component {
   render() {
     return <Fragment>
       <Affix>
-        <Row>
+        <Row gutter={[8, 8]}>
           <Col span={12}>
             <p>{this.state.data}</p>
           </Col>
