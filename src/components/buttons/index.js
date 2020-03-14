@@ -18,7 +18,7 @@ function IconOnlyButton(props) {
 IconOnlyButton.propTypes = {
   icon: PropTypes.object.isRequired,
 }
-export { IconOnlyButton };
+export { IconOnlyButton }
 
 
 /**
@@ -39,4 +39,4 @@ NeonButton.propTypes = {
   color: PropTypes.string.isRequired,
   icon: PropTypes.object.isRequired,
 }
-export { NeonButton };
+export { NeonButton }

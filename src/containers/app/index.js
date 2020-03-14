@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
@@ -10,19 +10,17 @@ import Home from 'containers/home';
 class App extends Component {
 
   render() {
-    return <Fragment>
-      <Row gutter={[8, 8]}>
-        <Col span={24}>
-          <Switch>
-            <Redirect exact from="/" to="/home" />
-            <Route exact path="/home" component={Home} />
-          </Switch>
-        </Col>
-        <Col span={24} >
-          <Header />
-        </Col>
-      </Row>
-    </Fragment>
+    return <Row style={{ overflowX: "hidden" }}>
+      <Col span={24}>
+        <Switch>
+          <Redirect exact from="/" to="/home" />
+          <Route exact path="/home" component={Home} />
+        </Switch>
+      </Col>
+      <Col span={24} >
+        <Header />
+      </Col>
+    </Row>
   }
 }
 

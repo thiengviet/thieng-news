@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col, Badge } from 'antd';
-import { BellOutlined, UserOutlined, SettingOutlined } from '@ant-design/icons';
+import { BellOutlined, UserOutlined, SettingOutlined, TeamOutlined } from '@ant-design/icons';
 import { IconOnlyButton } from 'components/buttons';
 
 class Menu extends Component {
@@ -34,8 +34,10 @@ class Menu extends Component {
           onClick={this.onNotification} />
       </Col>
       <Col>
-        <IconOnlyButton icon={<UserOutlined />} onClick={() => this.to('/user')}
-        />
+        <IconOnlyButton icon={<TeamOutlined />} />
+      </Col>
+      <Col>
+        <IconOnlyButton icon={<UserOutlined />} onClick={() => this.to('/user')} />
       </Col>
       <Col>
         <IconOnlyButton icon={<SettingOutlined />} />

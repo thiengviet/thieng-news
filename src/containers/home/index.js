@@ -6,6 +6,8 @@ import { Row, Col } from 'antd';
 import { Typography, Button, Card } from 'antd';
 import { SearchOutlined, HeartFilled } from '@ant-design/icons';
 import { IconOnlyButton, NeonButton } from 'components/buttons';
+import { Status } from 'components/status';
+import { loremIpsum } from "lorem-ipsum";
 
 const { Text } = Typography;
 
@@ -41,7 +43,19 @@ class Home extends Component {
             </Col>
           </Row>
         </Col>
-        <Col span={24} >
+        <Col xs={24} md={12}>
+          <Status content={loremIpsum({ units: 'paragraph' })} />
+        </Col>
+        <Col xs={24} md={12}>
+          <Status content={loremIpsum({ units: 'paragraph' })} />
+        </Col>
+        <Col xs={24} md={12}>
+          <Status content={loremIpsum({ units: 'paragraph' })} />
+        </Col>
+        <Col xs={24} md={12}>
+          <Status content={loremIpsum({ units: 'paragraph' })} />
+        </Col>
+        <Col xs={24} md={8} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}
@@ -59,7 +73,7 @@ class Home extends Component {
             </Card.Grid>
           </Card>
         </Col>
-        <Col span={24} >
+        <Col xs={24} md={8} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}
@@ -77,7 +91,7 @@ class Home extends Component {
             </Card.Grid>
           </Card>
         </Col>
-        <Col span={24} >
+        <Col xs={24} md={8} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}
@@ -95,7 +109,7 @@ class Home extends Component {
             </Card.Grid>
           </Card>
         </Col>
-        <Col span={24} >
+        <Col xs={24} md={8} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}
@@ -113,7 +127,7 @@ class Home extends Component {
             </Card.Grid>
           </Card>
         </Col>
-        <Col span={24} >
+        <Col xs={24} md={8} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}
@@ -131,7 +145,7 @@ class Home extends Component {
             </Card.Grid>
           </Card>
         </Col>
-        <Col span={24} >
+        <Col xs={24} md={8} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}
@@ -149,7 +163,7 @@ class Home extends Component {
             </Card.Grid>
           </Card>
         </Col>
-        <Col span={24} >
+        <Col xs={24} md={8} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}
@@ -167,25 +181,7 @@ class Home extends Component {
             </Card.Grid>
           </Card>
         </Col>
-        <Col span={24} >
-          <Card
-            title="Default size card"
-            extra={<a href="/home">Home</a>}
-            style={{ width: 300 }}
-          >
-            <Card.Grid
-              style={{ width: '50%', textAlign: 'center' }}
-            >
-              <Text>Hoverable</Text>
-            </Card.Grid>
-            <Card.Grid
-              style={{ width: '50%', textAlign: 'center' }}
-              hoverable={false}>
-              <Text>Unhoverable</Text>
-            </Card.Grid>
-          </Card>
-        </Col>
-        <Col span={24} >
+        <Col xs={24} md={8} >
           <Card
             title="Default size card"
             extra={<a href="/home">Home</a>}

@@ -21,4 +21,6 @@ module.exports = {
     "@btn-primary-shadow": "0px 20px 30px 2px rgba(254, 83, 108, 0.25)",
     // Card
     "@card-radius": "24px",
+    // Avatar
+    "@avatar-border-radius": "16px",
 }
