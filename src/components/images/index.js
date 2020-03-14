@@ -8,10 +8,10 @@ function CardImage(props) {
       alt={props.src}
       src={props.src}
       style={{
-        borderRadius: "20px",
-        width: "calc(100% + 36px)",
+        borderRadius: "44px",
+        width: "calc(100% + 48px)",
         height: "auto",
-        margin: "-18px -18px"
+        margin: "-24px -24px"
       }}
     />
   </Card>

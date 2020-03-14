@@ -17,7 +17,7 @@ class Status extends Component {
 
     this.state = {
       img: "https://source.unsplash.com/random?portrait",
-      cover: "https://source.unsplash.com/random/1600x900",
+      cover: "https://source.unsplash.com/random/1600x1600",
     }
   }
 

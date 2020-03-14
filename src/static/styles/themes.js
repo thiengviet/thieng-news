@@ -20,7 +20,7 @@ module.exports = {
     "@btn-border-radius-sm": "12px",
     "@btn-primary-shadow": "0px 20px 30px 2px rgba(254, 83, 108, 0.25)",
     // Card
-    "@card-radius": "24px",
+    "@card-radius": "48px",
     "@card-shadow": "0px 20px 30px 2px rgba(199, 213, 239, 1)",
     // Avatar
     "@avatar-border-radius": "16px",
