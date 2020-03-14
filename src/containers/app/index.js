@@ -13,15 +13,13 @@ class App extends Component {
     return <Fragment>
       <Row gutter={[8, 8]}>
         <Col span={24}>
-          <Header />
-        </Col>
-      </Row>
-      <Row gutter={[8, 8]}>
-        <Col span={24}>
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route exact path="/home" component={Home} />
           </Switch>
+        </Col>
+        <Col span={24} >
+          <Header />
         </Col>
       </Row>
     </Fragment>

@@ -33,7 +33,7 @@ class Home extends Component {
               <Button shape="circle" icon={<SearchOutlined />} />
             </Col>
             <Col xs={12} md={6}>
-              <IconOnlyButton icon={<HeartFilled />}/>
+              <IconOnlyButton icon={<HeartFilled />} />
             </Col>
             <Col xs={12} md={6}>
               <NeonButton color="#1be2ff" icon={<HeartFilled />}
@@ -59,8 +59,152 @@ class Home extends Component {
             </Card.Grid>
           </Card>
         </Col>
+        <Col span={24} >
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
+        </Col>
+        <Col span={24} >
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
+        </Col>
+        <Col span={24} >
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
+        </Col>
+        <Col span={24} >
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
+        </Col>
+        <Col span={24} >
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
+        </Col>
+        <Col span={24} >
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
+        </Col>
+        <Col span={24} >
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
+        </Col>
+        <Col span={24} >
+          <Card
+            title="Default size card"
+            extra={<a href="/home">Home</a>}
+            style={{ width: 300 }}
+          >
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+            >
+              <Text>Hoverable</Text>
+            </Card.Grid>
+            <Card.Grid
+              style={{ width: '50%', textAlign: 'center' }}
+              hoverable={false}>
+              <Text>Unhoverable</Text>
+            </Card.Grid>
+          </Card>
+        </Col>
       </Row>
-    </Fragment>
+    </Fragment >
   }
 }
 

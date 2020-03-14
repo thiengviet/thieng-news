@@ -1,33 +1,36 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import {
-  Row, Col, Affix,
-} from 'antd';
+import { Row, Col, Affix } from 'antd';
+import Brand from './brand';
+import Menu from './menu';
+import styles from './styles';
 
 class Header extends Component {
   constructor() {
     super();
 
     this.state = {
-      data: 'Header'
+
     }
   }
 
   render() {
-    return <Fragment>
-      <Affix>
-        <Row gutter={[8, 8]}>
-          <Col span={12}>
-            <p>{this.state.data}</p>
-          </Col>
-          <Col span={12}>
-            <p>{this.state.data}</p>
-          </Col>
-        </Row>
-      </Affix>
-    </Fragment>
+    return <Affix offsetBottom={8}>
+      <Row justify="center" align="middle" style={styles.backdropStyle}>
+        <Col xs={22}>
+          <Row gutter={[8, 0]}>
+            <Col xs={4}>
+              <Brand />
+            </Col>
+            <Col xs={20}>
+              <Menu />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Affix>
   }
 }
 
