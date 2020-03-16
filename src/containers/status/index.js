@@ -17,14 +17,20 @@ class Status extends Component {
 
     this.state = {
       img: "https://source.unsplash.com/random?portrait",
-      cover: "https://source.unsplash.com/random/1600x1600",
     }
   }
+
+  getRandImg = () => {
+    let rand = Math.floor(Math.random() * 1000) + 600;
+    let url = `https://source.unsplash.com/random/${rand}x${rand}`;
+    return url
+  }
+
 
   render() {
     return <Row gutter={[0, 72]}>
       <Col xs={24}>
-        <CardImage src={this.state.cover} />
+        <CardImage src={this.getRandImg()} />
       </Col>
       <Col xs={24}>
         <Row gutter={[0, 0]}>

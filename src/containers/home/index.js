@@ -30,7 +30,7 @@ class Home extends Component {
         </Row>
         <Row justify="center">
           <Col span={20}>
-            <Explorer />
+            <Newsfeed />
           </Col>
         </Row>
         <Row justify="center">
