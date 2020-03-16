@@ -63,7 +63,6 @@ class Home extends Component {
 
   render() {
     const type = this.props.ui.type;
-    console.log(type)
     switch (type) {
       case 'xs':
         return this.renderPortrait();
