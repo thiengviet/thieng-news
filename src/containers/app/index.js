@@ -7,25 +7,35 @@ import 'static/styles/index.css'
 import { Drain } from 'components/drains';
 import Header from 'containers/header';
 import Home from 'containers/home';
-import RightSider from 'containers/rightsider';
+
+import { setScreen } from 'modules/ui.reducer';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    props.setScreen(window.innerWidth);
+  }
+
+
+  componentDidMount() {
+    window.onresize = () => {
+      this.props.setScreen(window.innerWidth);
+    }
+  }
 
   render() {
     return <Row justify="center" style={{ overflowX: "hidden" }}>
-      <Col span={24}>
+      <Col xs={24}>
         <Drain height={50} />
       </Col>
-      <Col span={20}>
+      <Col xs={24}>
         <Switch>
           <Redirect exact from="/" to="/home" />
           <Route exact path="/home" component={Home} />
         </Switch>
       </Col>
-      <Col span={4}>
-        <RightSider />
-      </Col>
-      <Col span={24} >
+      <Col xs={24} >
         <Header />
       </Col>
     </Row>
@@ -37,6 +47,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  setScreen,
 }, dispatch);
 
 export default withRouter(connect(
