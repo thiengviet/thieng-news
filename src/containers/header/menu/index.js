@@ -25,7 +25,7 @@ class Menu extends Component {
 
   render() {
     return <Row gutter={[24, 0]} justify="end" align="middle">
-      <Col>
+      <Col flex="0 1 auto">
         <IconOnlyButton
           icon={
             <Badge dot={this.state.badge}>
@@ -33,13 +33,13 @@ class Menu extends Component {
             </Badge>}
           onClick={this.onNotification} />
       </Col>
-      <Col>
+      <Col flex="0 1 auto">
         <IconOnlyButton icon={<TeamOutlined />} />
       </Col>
-      <Col>
+      <Col flex="0 1 auto">
         <IconOnlyButton icon={<UserOutlined />} onClick={() => this.to('/user')} />
       </Col>
-      <Col>
+      <Col flex="0 1 auto">
         <IconOnlyButton icon={<SettingOutlined />} />
       </Col>
     </Row>

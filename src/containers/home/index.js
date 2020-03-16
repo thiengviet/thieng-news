@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import { Typography, Button, Card } from 'antd';
-import { SearchOutlined, HeartFilled } from '@ant-design/icons';
-import { IconOnlyButton, NeonButton } from 'components/buttons';
+import { Typography, Card } from 'antd';
 import Status from 'containers/status';
 
 const { Text } = Typography;
@@ -21,13 +19,13 @@ class Home extends Component {
 
   render() {
     return <Row gutter={[{ xs: 16, md: 32, lg: 72 }, 0]} justify="center">
-      <Col xs={24} md={10}>
+      <Col xs={24} md={12}>
         <Status statusId={'0'} />
         <Status statusId={'0'} />
         <Status statusId={'0'} />
         <Status statusId={'0'} />
       </Col>
-      <Col xs={24} md={10} >
+      <Col xs={24} md={12} >
         <Card
           title="Default size card"
           extra={<a href="/home">Home</a>}
@@ -44,23 +42,6 @@ class Home extends Component {
             <Text>Unhoverable</Text>
           </Card.Grid>
         </Card>
-      </Col>
-      <Col xs={24} md={4}>
-        <Row gutter={[8, 36]}>
-          <Col xs={24}>
-            <Button type="primary">Button</Button>
-          </Col>
-          <Col xs={24}>
-            <Button shape="circle" icon={<SearchOutlined />} />
-          </Col>
-          <Col xs={24}>
-            <IconOnlyButton icon={<HeartFilled />} />
-          </Col>
-          <Col xs={24}>
-            <NeonButton color="#1be2ff" icon={<HeartFilled />}
-            />
-          </Col>
-        </Row>
       </Col>
     </Row>
   }

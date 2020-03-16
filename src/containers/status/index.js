@@ -23,19 +23,19 @@ class Status extends Component {
 
   render() {
     return <Row gutter={[0, 72]}>
-      <Col span={24}>
+      <Col xs={24}>
         <CardImage src={this.state.cover} />
       </Col>
-      <Col span={24}>
+      <Col xs={24}>
         <Row gutter={[0, 0]}>
-          <Col span={24}>
+          <Col xs={24}>
             <StandardComment
               avatar={this.state.img}
               name={'Lionel Messi'}
               content={loremIpsum({ units: 'paragraph' })}
               time={moment().fromNow()} />
           </Col>
-          <Col span={24}>
+          <Col xs={24}>
             <Action />
           </Col>
         </Row>
