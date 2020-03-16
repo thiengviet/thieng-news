@@ -21,14 +21,13 @@ class Home extends Component {
 
   render() {
     return <Row gutter={[{ xs: 16, md: 32, lg: 72 }, 0]} justify="center">
-      <Col xs={20} md={2}>
-        <Text>{this.state.data}</Text>
-      </Col>
-      <Col xs={22} md={10}>
+      <Col xs={24} md={10}>
+        <Status statusId={'0'} />
+        <Status statusId={'0'} />
         <Status statusId={'0'} />
         <Status statusId={'0'} />
       </Col>
-      <Col xs={20} md={8}>
+      <Col xs={24} md={10} >
         <Card
           title="Default size card"
           extra={<a href="/home">Home</a>}
@@ -46,7 +45,7 @@ class Home extends Component {
           </Card.Grid>
         </Card>
       </Col>
-      <Col xs={20} md={4}>
+      <Col xs={24} md={4}>
         <Row gutter={[8, 36]}>
           <Col xs={24}>
             <Button type="primary">Button</Button>
