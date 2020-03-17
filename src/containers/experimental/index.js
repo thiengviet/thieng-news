@@ -8,7 +8,7 @@ import Explorer from 'containers/explorer';
 import Newsfeed from 'containers/newsfeed';
 import RightSider from 'containers/rightsider';
 
-class Home extends Component {
+class Experimental extends Component {
   constructor() {
     super();
 
@@ -19,8 +19,30 @@ class Home extends Component {
 
   render() {
     return <Row justify="center">
-      <Col xs={10} lg={8} xl={6}>
-        asdasd
+      <Col xs={24} lg={20} xl={18}>
+        <Swip>
+          <SwipChild xs={24} md={8}>
+            <Row justify="center">
+              <Col xs={20}>
+                <Explorer />
+              </Col>
+            </Row>
+          </SwipChild>
+          <SwipChild xs={24} md={12}>
+            <Row justify="center">
+              <Col xs={20}>
+                <Newsfeed />
+              </Col>
+            </Row>
+          </SwipChild>
+          <SwipChild xs={24} md={4}>
+            <Row justify="center">
+              <Col xs={20}>
+                <RightSider />
+              </Col>
+            </Row>
+          </SwipChild>
+        </Swip>
       </Col>
     </Row>
   }
@@ -36,4 +58,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home));
+)(Experimental));

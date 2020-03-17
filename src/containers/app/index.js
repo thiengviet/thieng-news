@@ -7,6 +7,7 @@ import 'static/styles/index.css'
 import { Drain } from 'components/drains';
 import Header from 'containers/header';
 import Home from 'containers/home';
+import Experimental from 'containers/experimental';
 
 import { setScreen } from 'modules/ui.reducer';
 
@@ -33,6 +34,7 @@ class App extends Component {
         <Switch>
           <Redirect exact from="/" to="/home" />
           <Route exact path="/home" component={Home} />
+          <Route exact path="/experimental" component={Experimental} />
         </Switch>
       </Col>
       <Col xs={24} >

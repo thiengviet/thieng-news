@@ -40,7 +40,7 @@ class Menu extends Component {
         <IconOnlyButton icon={<UserOutlined />} onClick={() => this.to('/user')} />
       </Col>
       <Col flex="0 1 auto">
-        <IconOnlyButton icon={<SettingOutlined />} />
+        <IconOnlyButton icon={<SettingOutlined />} onClick={() => this.to('/experimental')} />
       </Col>
     </Row>
   }
