@@ -26,7 +26,6 @@ class Status extends Component {
     return url
   }
 
-
   render() {
     return <Row gutter={[0, 72]}>
       <Col xs={24}>
