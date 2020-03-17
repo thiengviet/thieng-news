@@ -18,13 +18,13 @@ class Home extends Component {
 
   render() {
     return <Swip>
-      <SwipChild xs={20} md={20} xl={10}>
+      <SwipChild xs={20} md={20} lg={10}>
         <Newsfeed />
       </SwipChild>
-      <SwipChild xs={20} md={10} xl={10}>
+      <SwipChild xs={20} md={10} lg={10}>
         <Explorer />
       </SwipChild>
-      <SwipChild xs={20} md={4} xl={4}>
+      <SwipChild xs={20} md={4} lg={4}>
         <RightSider />
       </SwipChild>
     </Swip>

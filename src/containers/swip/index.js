@@ -28,23 +28,15 @@ class Swip extends Component {
 
   calculateGroupViews = (responsiveViews) => {
     let groups = [];
-    let i = 0;
-    while (responsiveViews.length > 0) {
-      let index = i++;
-      let span = responsiveViews.shift();
-      if (index === 0) {
-        groups.push([{ index, span }]);
-        continue;
-      }
+    responsiveViews.forEach((span, index) => {
+      if (index === 0)
+        return groups.push([{ index, span }]);
       let lastGroup = groups[groups.length - 1];
       let totalSpanInLastGroup = lastGroup.reduce((s, e) => s + e.span, 0);
-      if (totalSpanInLastGroup + span <= 24) {
-        groups[groups.length - 1].push({ index, span });
-      }
-      else {
-        groups.push([{ index, span }]);
-      }
-    }
+      if (totalSpanInLastGroup + span > 24)
+        return groups.push([{ index, span }]);
+      return groups[groups.length - 1].push({ index, span });
+    });
     return groups;
   }
 
@@ -69,6 +61,7 @@ class Swip extends Component {
         resistance
         ignoreNativeScroll
         disableLazyLoading
+        enableMouseEvents
         slideClassName="ant-col ant-col-24"
         onChangeIndex={this.onChange}
       >
