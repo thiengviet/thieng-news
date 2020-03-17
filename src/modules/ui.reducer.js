@@ -5,7 +5,8 @@
 
 const defaultState = {
   width: 0,
-  type: 'xs'
+  type: 'xs',
+  swipIndex: 0,
 }
 
 
@@ -38,17 +39,16 @@ export const setScreen = (value) => {
       if (typeof (value) !== 'number' || value < 0) {
         dispatch({
           type: SET_SCREEN_FAIL,
-          reason: 'Input is null.',
+          reason: 'Invalid input type',
           data: { ...defaultState }
         });
-        return reject('Input is null.');
+        return reject('Invalid input type');
       }
 
       let data = {
         width: value,
         type: getCode(value)
-      };
-
+      }
       dispatch({
         type: SET_SCREEN_OK,
         reason: null,
@@ -61,6 +61,38 @@ export const setScreen = (value) => {
 
 
 /**
+ * Set screen
+ */
+export const SET_SWIP_INDEX = 'SET_SWIP_INDEX';
+export const SET_SWIP_INDEX_OK = 'SET_SWIP_INDEX_OK';
+export const SET_SWIP_INDEX_FAIL = 'SET_SWIP_INDEX_FAIL';
+
+export const setSwipIndex = (index) => {
+  return dispatch => {
+    return new Promise((resolve, reject) => {
+      dispatch({ type: SET_SWIP_INDEX });
+
+      if (typeof (index) !== 'number' || index < 0) {
+        dispatch({
+          type: SET_SWIP_INDEX_FAIL,
+          reason: 'Invalid input type',
+          data: { ...defaultState }
+        });
+        return reject('Invalid input type');
+      }
+
+      let data = { swipIndex: index }
+      dispatch({
+        type: SET_SWIP_INDEX_OK,
+        reason: null,
+        data: data
+      });
+      return resolve(index);
+    });
+  };
+};
+
+/**
  * Reducder
  */
 export default (state = defaultState, action) => {
@@ -68,6 +100,10 @@ export default (state = defaultState, action) => {
     case SET_SCREEN_OK:
       return { ...state, ...action.data };
     case SET_SCREEN_FAIL:
+      return { ...state, ...action.data };
+    case SET_SWIP_INDEX_OK:
+      return { ...state, ...action.data };
+    case SET_SWIP_INDEX_FAIL:
       return { ...state, ...action.data };
     default:
       return state;

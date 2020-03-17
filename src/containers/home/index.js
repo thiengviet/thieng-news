@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import SwipeableViews from 'react-swipeable-views';
 import { Row, Col } from 'antd';
+import Swip from 'containers/swip';
 import Explorer from 'containers/explorer';
 import Newsfeed from 'containers/newsfeed';
 import RightSider from 'containers/rightsider';
@@ -17,32 +17,45 @@ class Home extends Component {
     }
   }
 
-  renderPortrait = () => {
-    return <Row>
-      <SwipeableViews
-        resistance
-        ignoreNativeScroll
-        slideClassName="ant-col ant-col-24">
-        <Row justify="center">
-          <Col span={20}>
-            <Newsfeed />
-          </Col>
-        </Row>
-        <Row justify="center">
-          <Col span={20}>
-            <Newsfeed />
-          </Col>
-        </Row>
-        <Row justify="center">
-          <Col span={20}>
-            <RightSider />
-          </Col>
-        </Row>
-      </SwipeableViews>
-    </Row>
+  renderPhone = () => {
+    return <Swip>
+      <Row justify="center">
+        <Col span={20}>
+          <Newsfeed />
+        </Col>
+      </Row>
+      <Row justify="center">
+        <Col span={20}>
+          <Newsfeed />
+        </Col>
+      </Row>
+      <Row justify="center">
+        <Col span={20}>
+          <RightSider />
+        </Col>
+      </Row>
+    </Swip>
   }
 
-  renderLandscape = () => {
+  renderTablet = () => {
+    return <Swip>
+      <Row gutter={[8, 0]} justify="center">
+        <Col span={20}>
+          <Newsfeed />
+        </Col>
+      </Row>
+      <Row justify="center">
+        <Col span={14}>
+          <Newsfeed />
+        </Col>
+        <Col span={6}>
+          <RightSider />
+        </Col>
+      </Row>
+    </Swip>
+  }
+
+  renderDesktop = () => {
     return <Row justify="center">
       <Col span={22}>
         <Row justify="center">
@@ -65,19 +78,19 @@ class Home extends Component {
     const type = this.props.ui.type;
     switch (type) {
       case 'xs':
-        return this.renderPortrait();
+        return this.renderPhone();
       case 'sm':
-        return this.renderPortrait();
+        return this.renderTablet();
       case 'md':
-        return this.renderLandscape();
+        return this.renderTablet();
       case 'lg':
-        return this.renderLandscape();
+        return this.renderDesktop();
       case 'xl':
-        return this.renderLandscape();
+        return this.renderDesktop();
       case 'xxl':
-        return this.renderLandscape();
+        return this.renderDesktop();
       default:
-        return this.renderLandscape();
+        return this.renderDesktop();
     }
   }
 }

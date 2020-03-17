@@ -7,42 +7,42 @@ import { IconOnlyButton, NeonButton } from 'components/buttons';
 
 function Action(props) {
   return <Row justify="space-between" align="middle" style={{ flexWrap: "nowrap" }}>
-    <Col>
+    <Col flex="0 1 auto">
       <Row gutter={[2, 0]} justify="start" align="middle">
-        <Col>
+        <Col flex="0 1 auto">
           <IconOnlyButton
             icon={<ShareAltOutlined />}
             onClick={props.onShare} />
         </Col>
-        <Col>
+        <Col flex="0 1 auto">
           <Typography.Text>{props.shares}</Typography.Text>
         </Col>
       </Row>
     </Col>
-    <Col>
+    <Col flex="0 1 auto">
       <Row gutter={[32, 0]} justify="end" align="middle">
         <Col>
           <Row gutter={[2, 0]} justify="end" align="middle">
-            <Col>
+            <Col flex="0 1 auto">
               <NeonButton
                 color="#6e45ff"
                 icon={<MessageFilled />}
                 onClick={props.onComment} />
             </Col>
-            <Col>
+            <Col flex="0 1 auto">
               <Typography.Text>{props.comments}</Typography.Text>
             </Col>
           </Row>
         </Col>
-        <Col>
+        <Col flex="0 1 auto">
           <Row gutter={[2, 0]} justify="end" align="middle">
-            <Col>
+            <Col flex="0 1 auto">
               <NeonButton
                 color="#fe536c"
                 icon={<HeartFilled />}
                 onClick={props.onLike} />
             </Col>
-            <Col>
+            <Col flex="0 1 auto">
               <Typography.Text>{props.likes}</Typography.Text>
             </Col>
           </Row>

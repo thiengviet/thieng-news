@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Card, Spin } from 'antd';
-import { Row, Col } from 'antd';
+import { Row, Col, Card } from 'antd';
 import TweenOne from 'rc-tween-one';
+import { CircleSpin } from 'components/spins';
 
 function CardImage(props) {
   const [loading, setLoading] = useState(true);
   const imgLoaded = () => {
     setLoading(false);
   }
-  console.log(loading)
   return <Card hoverable={true}>
     <TweenOne
       animation={{ opacity: 1, duration: 1000 }}
@@ -31,7 +30,7 @@ function CardImage(props) {
     </TweenOne>
     {loading ? <Row justify="center">
       <Col flex="0 1 auto">
-        <Spin />
+        <CircleSpin />
       </Col>
     </Row> : null}
   </Card>
