@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';
 import { loremIpsum } from "lorem-ipsum";
-import { Search } from 'components/inputs';
+import Trend from 'containers/trend';
 
 class Home extends Component {
   constructor() {
@@ -21,12 +21,12 @@ class Home extends Component {
       <Col xs={20} lg={8} xl={6}>
         <Row gutter={[0, 80]}>
           <Col xs={24}>
-            <Search />
+            <Trend />
           </Col>
           <Col xs={24}>
-            <Typography.Paragraph>
-              {loremIpsum({ count: 5, units: 'paragraph' })}
-            </Typography.Paragraph>
+            <Typography.Text>
+              {loremIpsum({ count: 2, units: 'paragraph' })}
+            </Typography.Text>
           </Col>
         </Row>
       </Col>
