@@ -16,6 +16,7 @@ class NewsFeed extends Component {
   }
 
   render() {
+    console.log("Newsfeed")
     return <Row gutter={[8, 0]} justify="center">
       <Col span={24}>
         <Status statusId={'0'} />

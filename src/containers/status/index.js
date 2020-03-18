@@ -27,9 +27,9 @@ class Status extends Component {
   }
 
   render() {
-    return <Row gutter={[0, 72]}>
+    return <Row gutter={[0, 80]}>
       <Col xs={24}>
-        <CardImage src={this.getRandImg()} />
+        <CardImage src={this.getRandImg()} lazy/>
       </Col>
       <Col xs={24}>
         <Row gutter={[0, 0]}>

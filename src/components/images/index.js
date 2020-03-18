@@ -12,35 +12,43 @@ function CardImage(props) {
     setLoading(false);
   }
 
-  return <LazyLoad height={500} offset={500} once>
-    <Card hoverable={true}>
-      <TweenOne
-        animation={{ opacity: 1, duration: 1000 }}
-        paused={loading}
-        style={{ opacity: 0 }}
-      >
-        <img
-          alt={props.src}
-          src={props.src}
-          style={{
-            borderRadius: "44px",
-            width: "calc(100% + 48px)",
-            height: "auto",
-            margin: "-24px -24px",
-            display: loading ? "none" : "block"
-          }}
-          onLoad={imgLoaded}
-        />
-      </TweenOne>
-      {loading ? <Row justify="center">
-        <Col flex="0 1 auto">
-          <CircleSpin />
-        </Col>
-      </Row> : null}
-    </Card>
-  </LazyLoad>
+  const MainComponent = <Card hoverable={true}>
+    <TweenOne
+      animation={{ opacity: 1, duration: 1000 }}
+      paused={loading}
+      style={{ opacity: 0 }}
+    >
+      <img
+        alt={props.src}
+        src={props.src}
+        style={{
+          borderRadius: "44px",
+          width: "calc(100% + 48px)",
+          height: "auto",
+          margin: "-24px -24px",
+          display: loading ? "none" : "block"
+        }}
+        onLoad={imgLoaded}
+      />
+    </TweenOne>
+    {loading ? <Row justify="center">
+      <Col flex="0 1 auto">
+        <CircleSpin />
+      </Col>
+    </Row> : null}
+  </Card>
+
+  if (props.lazy) return <LazyLoad height={500} offset={500} once children={MainComponent} />
+  else return MainComponent
 }
+
+CardImage.defaultProps = {
+  lazy: false,
+}
+
 CardImage.propTypes = {
-  src: PropTypes.string.isRequired
+  src: PropTypes.string.isRequired,
+  lazy: PropTypes.bool,
 }
+
 export { CardImage }
