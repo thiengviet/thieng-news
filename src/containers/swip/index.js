@@ -52,7 +52,7 @@ class Swip extends Component {
   }
 
   render() {
-    let children = this.props.children;
+    let { defaultIndex, children } = this.props;
     if (!children) return null;
     children = this.groupViews(children);
     if (children.length === 1) return children;
@@ -62,6 +62,7 @@ class Swip extends Component {
         ignoreNativeScroll
         disableLazyLoading
         enableMouseEvents
+        index={defaultIndex}
         slideClassName="ant-col ant-col-24"
         onChangeIndex={this.onChange}
       >
@@ -79,8 +80,13 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   setSwipIndex
 }, dispatch);
 
+Swip.defaultProps = {
+  defaultIndex: 0,
+}
+
 Swip.propsType = {
   children: PropsType.object,
+  defaultIndex: PropsType.number,
 }
 
 export default withRouter(connect(

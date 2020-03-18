@@ -20,7 +20,7 @@ class Experimental extends Component {
   render() {
     return <Row justify="center">
       <Col xs={24} lg={20} xl={18}>
-        <Swip>
+        <Swip defaultIndex={1}>
           <SwipChild xs={24} md={8}>
             <Row justify="center">
               <Col xs={20}>

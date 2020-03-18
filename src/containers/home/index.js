@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import Swip, { SwipChild } from 'containers/swip';
 import { Row, Col } from 'antd';
-import Explorer from 'containers/explorer';
-import Newsfeed from 'containers/newsfeed';
-import RightSider from 'containers/rightsider';
+import { Typography } from 'antd';
+import { loremIpsum } from "lorem-ipsum";
 
 class Home extends Component {
   constructor() {
@@ -19,8 +17,10 @@ class Home extends Component {
 
   render() {
     return <Row justify="center">
-      <Col xs={10} lg={8} xl={6}>
-        asdasd
+      <Col xs={20} lg={8} xl={6}>
+        <Typography.Paragraph>
+          {loremIpsum({ count: 5, units: 'paragraph' })}
+        </Typography.Paragraph>
       </Col>
     </Row>
   }
