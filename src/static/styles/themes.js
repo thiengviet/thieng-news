@@ -4,6 +4,8 @@ module.exports = {
   "@body-background": "#f3f8fe",
   "@primary-color": "#fe536c",
   "@component-background": "#ffffff00",
+  // Font
+  "@font-family": "'Noto Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
   // Border
   "@border-radius-base": "16px",
   "@border-style-base": "none",

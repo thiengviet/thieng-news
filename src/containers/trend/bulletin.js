@@ -45,7 +45,7 @@ export { HashTag }
  * Bulletin board
  */
 function Bulletin(props) {
-  return <Row gutter={[0, 48]}>
+  return <Row gutter={[0, 32]}>
     {
       props.tags.map((tag, i) => {
         return <Col key={i} span={24}>
