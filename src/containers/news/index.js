@@ -3,29 +3,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import Tool from 'containers/tool';
-import News from 'containers/news';
+import { Typography } from 'antd';
+import { loremIpsum } from "lorem-ipsum";
 
-class Home extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      data: 'Typography'
-    }
-  }
-
+class News extends Component {
   render() {
-    return <Row justify="center">
-      <Col xs={20} lg={8} xl={6}>
-        <Row gutter={[0, 64]}>
-          <Col span={24}>
-            <Tool />
-          </Col>
-          <Col span={24}>
-            <News />
-          </Col>
-        </Row>
+    return <Row>
+      <Col span={24}>
+        <Typography.Title>
+          {loremIpsum({ units: 'sentence' })}
+        </Typography.Title>
+        <Typography.Text>
+          {loremIpsum({ count: 2, units: 'paragraph' })}
+        </Typography.Text>
       </Col>
     </Row>
   }
@@ -41,4 +31,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home));
+)(News));

@@ -67,7 +67,7 @@ export { ImageCard }
  */
 function UserCard(props) {
   return <Row>
-    <Col span={20}>
+    <Col span={20} onClick={props.onUser}>
       <Row gutter={[16, 0]} align="middle" style={{ flexWrap: "nowrap" }}>
         <Col flex="0 1 auto">
           <NeonAvatar src={props.src} />
@@ -106,6 +106,7 @@ function UserCard(props) {
 UserCard.defaultProps = {
   online: false,
   onAdd: () => { },
+  onUser: () => { },
 }
 
 UserCard.propTypes = {
@@ -114,6 +115,7 @@ UserCard.propTypes = {
   mention: PropTypes.string.isRequired,
   online: PropTypes.bool,
   onAdd: PropTypes.func,
+  onUser: PropTypes.func,
 }
 
 export { UserCard }

@@ -3,29 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import Tool from 'containers/tool';
-import News from 'containers/news';
+import Search from 'containers/search';
+import Trend from 'containers/trend';
+import Network from 'containers/network';
 
-class Home extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      data: 'Typography'
-    }
-  }
+class Tool extends Component {
 
   render() {
-    return <Row justify="center">
-      <Col xs={20} lg={8} xl={6}>
-        <Row gutter={[0, 64]}>
-          <Col span={24}>
-            <Tool />
-          </Col>
-          <Col span={24}>
-            <News />
-          </Col>
-        </Row>
+    return <Row gutter={[0, 64]} justify="end">
+      <Col span={24}>
+        <Search />
+      </Col>
+      <Col span={20}>
+        <Trend />
+      </Col>
+      <Col span={24}>
+        <Network />
       </Col>
     </Row>
   }
@@ -41,4 +34,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home));
+)(Tool));

@@ -6,7 +6,7 @@ import { Row, Col, Card } from 'antd';
 import { UserCard } from 'components/cards';
 
 class Network extends Component {
-  
+
   getMargin = () => {
     switch (this.props.ui.type) {
       case 'xs':
@@ -25,7 +25,7 @@ class Network extends Component {
               <UserCard
                 src="https://source.unsplash.com/random?portrait"
                 name="Hubert Blaine Wolfesch"
-                mention="@leo"
+                mention="@wolfesch"
               />
             </Col>
             <Col span={24}>
@@ -39,8 +39,8 @@ class Network extends Component {
             <Col span={24}>
               <UserCard
                 src="https://source.unsplash.com/random?portrait"
-                name="Lionel Messi"
-                mention="@leo"
+                name="Tu Phan"
+                mention="@tuphan"
               />
             </Col>
           </Row>

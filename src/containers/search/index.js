@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import PropsType from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { Input, Row, Col } from 'antd';
 import { IconOnlyButton } from 'components/buttons';
 import { FiSearch } from "react-icons/fi";
@@ -16,7 +18,11 @@ class Search extends Component {
   onChange = (e) => {
     let value = e.target.value;
     this.setState({ value });
-    return this.props.onChange(value);
+  }
+
+  onSearch = () => {
+    let { value } = this.state;
+    console.log(value);
   }
 
   render() {
@@ -26,7 +32,7 @@ class Search extends Component {
           <Col flex="0 1 auto">
             <IconOnlyButton
               icon={<FiSearch />}
-              onClick={() => this.props.onSearch(this.state.value)}
+              onClick={this.onSearch}
             />
           </Col>
         </Row>
@@ -37,21 +43,21 @@ class Search extends Component {
           placeholder="Search..."
           style={{ marginLeft: "-11px" }}
           onChange={this.onChange}
-          onPressEnter={e => this.props.onSearch(e.target.value)}
+          onPressEnter={this.onSearch}
         />
       </Col>
     </Row>
   }
 }
 
-Search.defaultProps = {
-  onChange: (e) => { console.log(e) },
-  onSearch: (e) => { console.log(e) },
-}
+const mapStateToProps = state => ({
+  ui: state.ui
+});
 
-Search.propsType = {
-  onChange: PropsType.func,
-  onSearch: PropsType.func,
-}
+const mapDispatchToProps = dispatch => bindActionCreators({
+}, dispatch);
 
-export { Search };
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search));
