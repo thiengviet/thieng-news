@@ -3,21 +3,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
+import Newsfeed from 'containers/newsfeed';
 import Tool from 'containers/tool';
 import News from 'containers/news';
+import themes from 'static/styles/themes';
 
 class Home extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      data: 'Typography'
-    }
-  }
 
   render() {
-    return <Row justify="center">
-      <Col xs={20} lg={8} xl={6}>
+    return <Row gutter={themes.globalHorizontalGutter} justify="center">
+      <Col xs={22} md={10} xl={8} xxl={6}>
         <Row gutter={[0, 64]}>
           <Col span={24}>
             <Tool />
@@ -26,6 +21,9 @@ class Home extends Component {
             <News />
           </Col>
         </Row>
+      </Col>
+      <Col xs={22} md={12} xl={10} xxl={8}>
+        <Newsfeed />
       </Col>
     </Row>
   }
