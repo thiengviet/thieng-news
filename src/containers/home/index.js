@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { Row, Col } from 'antd';
+import { Row, Col, Typography } from 'antd';
 import Newsfeed from 'containers/newsfeed';
 import Tool from 'containers/tool';
 import News from 'containers/news';
@@ -14,6 +14,9 @@ class Home extends Component {
     return <Row gutter={[themes.globalHorizontalGutter, 0]} justify="center">
       <Col xs={22} md={10} xl={8} xxl={6}>
         <Row gutter={[0, themes.globalVerticalGutter]}>
+          <Col span={24}>
+            <Typography.Title type="secondary">Thieng Design</Typography.Title>
+          </Col>
           <Col span={24}>
             <Tool />
           </Col>
