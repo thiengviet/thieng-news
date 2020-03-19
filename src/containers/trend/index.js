@@ -14,18 +14,19 @@ class Trend extends Component {
     this.state = {
       tags: [{
         tag: "#coronavirus",
-        count: 123456,
+        count: Math.floor(Math.random() * 1000000),
         description: loremIpsum({ units: 'sentence' }) + " 🤬🤬"
       }, {
         tag: "#economiccrisis",
-        count: 11245699
+        count: Math.floor(Math.random() * 1000000),
       }, {
         tag: "#olympictokyo2020",
-        count: 112456,
+        count: Math.floor(Math.random() * 1000000),
         description: "✌️ " + loremIpsum({ units: 'sentence' })
       }]
     }
   }
+
   render() {
     return <Row gutter={[0, 32]}>
       {

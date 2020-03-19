@@ -11,9 +11,9 @@ import themes from 'static/styles/themes';
 class Home extends Component {
 
   render() {
-    return <Row gutter={themes.globalHorizontalGutter} justify="center">
+    return <Row gutter={[themes.globalHorizontalGutter, 0]} justify="center">
       <Col xs={22} md={10} xl={8} xxl={6}>
-        <Row gutter={[0, 64]}>
+        <Row gutter={[0, themes.globalVerticalGutter]}>
           <Col span={24}>
             <Tool />
           </Col>

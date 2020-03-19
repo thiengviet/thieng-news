@@ -9,6 +9,7 @@ import { StandardComment } from 'components/comments';
 import Action from './action';
 import { loremIpsum } from "lorem-ipsum";
 import moment from 'moment';
+import themes from 'static/styles/themes';
 
 
 class Status extends Component {
@@ -27,7 +28,7 @@ class Status extends Component {
   }
 
   render() {
-    return <Row gutter={[0, 64]}>
+    return <Row gutter={[0, themes.globalVerticalGutter]}>
       <Col xs={24}>
         <ImageCard src={this.getRandImg()} lazy/>
       </Col>

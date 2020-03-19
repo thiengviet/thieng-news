@@ -6,16 +6,20 @@ import { NeonAvatar } from 'components/avatars';
 
 function StandardComment(props) {
   return <Row gutter={[24, 0]} style={{ flexWrap: "nowrap" }}>
-    <Col flex="auto">
+    <Col flex="0 1 auto">
       <NeonAvatar src={props.avatar} />
     </Col>
-    <Col flex="auto">
-      <Row gutter={[0, 12]} justify="space-between">
-        <Col>
-          <Typography.Text strong>{props.name}</Typography.Text>
-        </Col>
-        <Col>
-          <Typography.Text type="secondary">{props.time}</Typography.Text>
+    <Col flex="0 1 auto">
+      <Row gutter={[0, 16]}>
+        <Col span={24}>
+          <Row justify="space-between" style={{ flexWrap: "nowrap" }}>
+            <Col flex="0 1 auto">
+              <Typography.Text strong>{props.name}</Typography.Text>
+            </Col>
+            <Col flex="0 1 auto">
+              <Typography.Text type="secondary">{props.time}</Typography.Text>
+            </Col>
+          </Row>
         </Col>
         <Col span={24}>
           <Typography.Text>{props.content}</Typography.Text>

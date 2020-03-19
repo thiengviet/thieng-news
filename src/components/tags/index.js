@@ -12,13 +12,15 @@ function HashTag(props) {
   return <Row gutter={[0, 16]}>
     <Col span={24}>
       <Row justify="space-between">
-        <Col flex="0 1 auto">
+        <Col span={20}>
           <Typography.Text strong>{props.tag}</Typography.Text>
         </Col>
-        <Col flex="0 1 auto">
-          <Tooltip title={props.count}>
-            <Typography.Text>{utils.prettyNumber(props.count)}</Typography.Text>
-          </Tooltip>
+        <Col span={4}>
+          <Row justify="end">
+            <Tooltip title={props.count}>
+              <Typography.Text>{utils.prettyNumber(props.count)}</Typography.Text>
+            </Tooltip>
+          </Row>
         </Col>
       </Row>
     </Col>

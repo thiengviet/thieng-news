@@ -13,6 +13,13 @@ class News extends Component {
         <Typography.Title>
           {loremIpsum({ units: 'sentence' })}
         </Typography.Title>
+      </Col>
+      <Col span={24}>
+        <Typography.Text type="secondary">
+          {loremIpsum({ units: 'sentence' })}
+        </Typography.Text>
+      </Col>
+      <Col span={24}>
         <Typography.Text>
           {loremIpsum({ count: 2, units: 'paragraph' })}
         </Typography.Text>

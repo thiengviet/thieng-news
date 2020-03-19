@@ -3,26 +3,27 @@ import PropTypes from 'prop-types';
 import { Typography, Row, Col } from 'antd';
 import { ShareAltOutlined, MessageFilled, HeartFilled } from '@ant-design/icons';
 import { IconOnlyButton, NeonButton } from 'components/buttons';
+import utils from 'helpers/utils';
 
 
 function Action(props) {
   return <Row justify="space-between" align="middle" style={{ flexWrap: "nowrap" }}>
     <Col flex="0 1 auto">
-      <Row gutter={[2, 0]} justify="start" align="middle">
+      <Row gutter={[8, 0]} justify="start" align="middle">
         <Col flex="0 1 auto">
           <IconOnlyButton
             icon={<ShareAltOutlined />}
             onClick={props.onShare} />
         </Col>
         <Col flex="0 1 auto">
-          <Typography.Text>{props.shares}</Typography.Text>
+          <Typography.Text>{utils.prettyNumber(props.shares)}</Typography.Text>
         </Col>
       </Row>
     </Col>
     <Col flex="0 1 auto">
       <Row gutter={[32, 0]} justify="end" align="middle">
         <Col>
-          <Row gutter={[2, 0]} justify="end" align="middle">
+          <Row gutter={[8, 0]} justify="end" align="middle">
             <Col flex="0 1 auto">
               <NeonButton
                 color="#6e45ff"
@@ -30,12 +31,12 @@ function Action(props) {
                 onClick={props.onComment} />
             </Col>
             <Col flex="0 1 auto">
-              <Typography.Text>{props.comments}</Typography.Text>
+              <Typography.Text>{utils.prettyNumber(props.comments)}</Typography.Text>
             </Col>
           </Row>
         </Col>
         <Col flex="0 1 auto">
-          <Row gutter={[2, 0]} justify="end" align="middle">
+          <Row gutter={[8, 0]} justify="end" align="middle">
             <Col flex="0 1 auto">
               <NeonButton
                 color="#fe536c"
@@ -43,7 +44,7 @@ function Action(props) {
                 onClick={props.onLike} />
             </Col>
             <Col flex="0 1 auto">
-              <Typography.Text>{props.likes}</Typography.Text>
+              <Typography.Text>{utils.prettyNumber(props.likes)}</Typography.Text>
             </Col>
           </Row>
         </Col>
@@ -53,15 +54,15 @@ function Action(props) {
 }
 
 Action.defaultProps = {
-  likes: '-',
-  comments: '-',
-  shares: '-',
+  likes: Math.floor(Math.random() * 1000000),
+  comments: Math.floor(Math.random() * 1000000),
+  shares: Math.floor(Math.random() * 1000000),
 }
 
 Action.propTypes = {
-  likes: PropTypes.string,
-  comments: PropTypes.string,
-  shares: PropTypes.string,
+  likes: PropTypes.number,
+  comments: PropTypes.number,
+  shares: PropTypes.number,
   onShare: PropTypes.func,
   onLike: PropTypes.func,
   onComment: PropTypes.func,

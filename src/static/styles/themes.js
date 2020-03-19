@@ -19,5 +19,6 @@ module.exports = {
   // Avatar
   "@avatar-border-radius": "16px",
   // For personale
-  globalHorizontalGutter: [{ md: 64, lg: 64, xl: 128, xxl: 136 }, 0],
+  globalHorizontalGutter: { md: 64, lg: 96, xl: 128, xxl: 136 },
+  globalVerticalGutter: 72,
 }

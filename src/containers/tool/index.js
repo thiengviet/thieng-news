@@ -6,11 +6,12 @@ import { Row, Col } from 'antd';
 import Search from 'containers/search';
 import Trend from 'containers/trend';
 import Network from 'containers/network';
+import themes from 'static/styles/themes';
 
 class Tool extends Component {
 
   render() {
-    return <Row gutter={[0, 64]} justify="end">
+    return <Row gutter={[0, themes.globalVerticalGutter]} justify="end">
       <Col span={24}>
         <Search />
       </Col>
