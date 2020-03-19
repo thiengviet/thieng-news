@@ -3,7 +3,7 @@ module.exports = {
   // Color
   "@body-background": "#f3f8fe",
   "@primary-color": "#fe536c",
-  "@component-background": "#ffffff00",
+  // "@component-background": "#ffffff00",
   // Font
   "@font-family": "'Raleway', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
   // Border
