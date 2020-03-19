@@ -43,4 +43,10 @@ Utils.prettyNumber = (num) => {
   return sign + shortNumber;
 }
 
+Utils.prettyName = (name, length) => {
+  if (!length) length = 15;
+  if (name.length > length) return name.slice(0, length - 1) + '...';
+  return name;
+}
+
 export default Utils;

@@ -6,6 +6,7 @@ import { Row, Col } from 'antd';
 import { loremIpsum } from "lorem-ipsum";
 import { Search } from './search';
 import { Bulletin } from './bulletin';
+import Network from 'containers/network';
 
 class Trend extends Component {
 
@@ -27,6 +28,9 @@ class Trend extends Component {
           count: 112456,
           description: "✌️ " + loremIpsum({ units: 'sentence' })
         }]} />
+      </Col>
+      <Col span={24}>
+        <Network />
       </Col>
     </Row>
   }

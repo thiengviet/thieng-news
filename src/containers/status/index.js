@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'antd';
-import { CardImage } from 'components/images';
+import { ImageCard } from 'components/cards';
 import { StandardComment } from 'components/comments';
 import Action from './action';
 import { loremIpsum } from "lorem-ipsum";
@@ -29,7 +29,7 @@ class Status extends Component {
   render() {
     return <Row gutter={[0, 80]}>
       <Col xs={24}>
-        <CardImage src={this.getRandImg()} lazy/>
+        <ImageCard src={this.getRandImg()} lazy/>
       </Col>
       <Col xs={24}>
         <Row gutter={[0, 0]}>

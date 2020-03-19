@@ -5,7 +5,7 @@ module.exports = {
   "@primary-color": "#fe536c",
   "@component-background": "#ffffff00",
   // Font
-  "@font-family": "'Noto Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+  "@font-family": "'Raleway', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
   // Border
   "@border-radius-base": "16px",
   "@border-style-base": "none",
