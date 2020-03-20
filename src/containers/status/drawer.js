@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Drawer, Typography, Row, Col } from 'antd';
 import { loremIpsum } from "lorem-ipsum";
 import { Swipeable } from 'react-swipeable';
+import { NeonAvatar } from 'components/avatars';
 
 
 const DEFAULT_HEIGHT = '90%';
@@ -51,11 +52,6 @@ class BottomDrawer extends Component {
           style={{ backgroundColor: "#000000a6", height: "4px", borderRadius: "2px" }}
         />
       </Row>
-      <Row>
-        <Col span={24}>
-          <Typography.Text>Basic Drawer</Typography.Text>
-        </Col>
-      </Row>
     </Swipeable >
   }
 
@@ -68,10 +64,31 @@ class BottomDrawer extends Component {
       closable={false}
       height={this.state.height}
     >
-      <Typography.Paragraph>{loremIpsum({ count: 4, units: 'paragraph' })}</Typography.Paragraph>
-      <Typography.Paragraph>{loremIpsum({ count: 4, units: 'paragraph' })}</Typography.Paragraph>
-      <Typography.Paragraph>{loremIpsum({ count: 4, units: 'paragraph' })}</Typography.Paragraph>
-      <Typography.Paragraph>{loremIpsum({ count: 4, units: 'paragraph' })}</Typography.Paragraph>
+      <Row gutter={[0, 24]}>
+        <Col span={24}>
+          <Row gutter={[16, 0]}>
+            <Col flex="0 1 auto">
+              <NeonAvatar src='https://source.unsplash.com/random?portrait' />
+            </Col>
+            <Col flex="1 1 auto">
+              <Row>
+                <Col span={24}>
+                  <Typography.Text strong>Phan Son Tu</Typography.Text>
+                </Col>
+                <Col span={24}>
+                  <Typography.Text>@tuphan</Typography.Text>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Col>
+        <Col span={24}>
+          <Typography.Paragraph>{loremIpsum({ units: 'paragraph' })}</Typography.Paragraph>
+          <Typography.Paragraph type="secondary">{loremIpsum({ units: 'paragraph' })}</Typography.Paragraph>
+          <Typography.Paragraph>{loremIpsum({ count: 2, units: 'paragraph' })}</Typography.Paragraph>
+          <Typography.Paragraph>{loremIpsum({ count: 2, units: 'paragraph' })}</Typography.Paragraph>
+        </Col>
+      </Row>
     </Drawer>
   }
 }

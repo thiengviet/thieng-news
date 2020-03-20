@@ -2,25 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { Row, Col, Card } from 'antd';
-import { UserCard } from 'components/cards';
+import { Row, Col } from 'antd';
+import { PlankCard, UserCard } from 'components/cards';
 
 class Network extends Component {
-
-  getMargin = () => {
-    switch (this.props.ui.type) {
-      case 'xs':
-        return "8px";
-      default:
-        return "16px 32px";
-    }
-  }
 
   render() {
     return <Row>
       <Col span={24}>
-        <Card hoverable={true} style={{ backgroundColor: "#ffffff" }}>
-          <Row gutter={[0, 32]} style={{ margin: this.getMargin() }}>
+        <PlankCard screen={this.props.ui.type} hoverable={false}>
+          <Row gutter={[0, 32]}>
             <Col span={24}>
               <UserCard
                 src="https://source.unsplash.com/random?portrait"
@@ -44,7 +35,7 @@ class Network extends Component {
               />
             </Col>
           </Row>
-        </Card>
+        </PlankCard>
       </Col>
     </Row>
   }

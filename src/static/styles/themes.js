@@ -1,9 +1,9 @@
 // For personale
 
 const globalConfig = {
-  globalRadius: "48px",
+  globalRadius: "24px",
   globalHorizontalGutter: { md: 56, lg: 96, xl: 128, xxl: 136 },
-  globalVerticalGutter: 72,
+  globalVerticalGutter: 64,
   globalBodyBackgroundColor: "#f3f8fe",
   globalPrimaryColor: "#ff3e3c",
   globalSecondaryColor: "#1be2ff",

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Row, Col, Affix } from 'antd';
 import Brand from './brand';
 import Menu from './menu';
-import styles from './styles';
+import themes from 'static/styles/themes';
 
 class Header extends Component {
   constructor() {
@@ -17,8 +17,13 @@ class Header extends Component {
   }
 
   render() {
-    return <Affix offsetBottom={8}>
-      <Row justify="center" align="middle" style={styles.backdropStyle}>
+    return <Affix offsetBottom={0}>
+      <Row justify="center" align="middle" style={{
+        height: "48px",
+        backgroundColor: themes.globalBodyBackgroundColor + "99",
+        backdropFilter: "blur(2px)",
+        WebkitBackdropFilter: "blur(2px)",
+      }}>
         <Col xs={22}>
           <Row gutter={[8, 0]}>
             <Col xs={4}>

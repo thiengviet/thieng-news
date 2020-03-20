@@ -27,31 +27,34 @@ class Form extends Component {
   render() {
     return <Row>
       <Col span={24}>
-        <PlankCard hoverable={true} style={{ padding: "0px 24px" }}>
-          <Row gutter={[16, 24]} >
-            <Col span={24} />
-          </Row>
-          <Row style={{ flexWrap: "nowrap" }} gutter={[16, 24]}>
-            <Col flex="0 1 auto">
-              <NeonAvatar src='https://source.unsplash.com/random?portrait' />
+        <PlankCard screen={this.props.ui.type}>
+          <Row gutter={[0, 32]}>
+            <Col span={24}>
+              <Row style={{ flexWrap: "nowrap" }} gutter={[16, 0]}>
+                <Col flex="0 1 auto">
+                  <NeonAvatar src='https://source.unsplash.com/random?portrait' />
+                </Col>
+                <Col flex="1 1 auto">
+                  <Input.TextArea
+                    placeholder="Write..."
+                    value={this.state.text}
+                    onChange={this.onChange}
+                    autoSize />
+                </Col>
+              </Row>
             </Col>
-            <Col flex="1 1 auto">
-              <Input.TextArea
-                placeholder="Write..."
-                value={this.state.text}
-                onChange={this.onChange}
-                autoSize />
-            </Col>
-          </Row>
-          <Row style={{ flexWrap: "nowrap" }} gutter={[24, 24]} justify="end" align="middle">
-            <Col flex="0 1 auto">
-              <NeonButton color={themes.globalMinorColorOne} icon={<PaperClipOutlined />} />
-            </Col>
-            <Col flex="0 1 auto">
-              <NeonButton color={themes.globalMinorColorTwo} icon={<SmileFilled />} />
-            </Col>
-            <Col flex="0 1 auto">
-              <Button type="primary">Send</Button>
+            <Col span={24}>
+              <Row style={{ flexWrap: "nowrap" }} gutter={[16, 0]} justify="end" align="middle">
+                <Col flex="0 1 auto">
+                  <NeonButton color={themes.globalMinorColorOne} icon={<PaperClipOutlined />} />
+                </Col>
+                <Col flex="0 1 auto">
+                  <NeonButton color={themes.globalMinorColorTwo} icon={<SmileFilled />} />
+                </Col>
+                <Col flex="0 1 auto">
+                  <Button type="primary">Send</Button>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </PlankCard>
@@ -61,6 +64,7 @@ class Form extends Component {
 }
 
 const mapStateToProps = state => ({
+  ui: state.ui
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

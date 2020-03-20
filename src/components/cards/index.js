@@ -15,9 +15,33 @@ import themes from 'static/styles/themes';
  * Plank card
  */
 function PlankCard(props) {
-  return <Card {...props}>
+  const getMargin = () => {
+    switch (props.screen) {
+      case 'xs':
+        return "0 16px";
+      default:
+        return "8px 24px";
+    }
+  }
+  return <Card hoverable={props.hoverable}>
+    <Row style={{ margin: getMargin() }}>
+      <Col span={24}>
+        {props.children}
+      </Col>
+    </Row>
   </Card>
 }
+
+PlankCard.defaultProps = {
+  screen: 'lg',
+  hoverable: true,
+}
+
+PlankCard.propTypes = {
+  screen: PropTypes.string,
+  hoverable: PropTypes.bool,
+}
+
 export { PlankCard }
 
 
@@ -28,12 +52,15 @@ function ImageCard(props) {
   const [loading, setLoading] = useState(true);
 
   const imgLoaded = () => {
-    setLoading(false);
+ setLoading(false);
   }
 
-  const MainComponent = <Card hoverable={true}>
+  const MainComponent = <Card
+    hoverable={true}
+    onClick={props.onClick}
+  >
     <TweenOne
-      animation={{ opacity: 1, duration: 1000 }}
+      animation={{ opacity: 1, duration: 300 }}
       paused={loading}
       style={{ opacity: 0 }}
     >
@@ -41,7 +68,7 @@ function ImageCard(props) {
         alt={props.src}
         src={props.src}
         style={{
-          borderRadius: "44px",
+          borderRadius: themes.globalRadius,
           width: "calc(100% + 48px)",
           height: "auto",
           margin: "-24px -24px",
@@ -63,11 +90,13 @@ function ImageCard(props) {
 
 ImageCard.defaultProps = {
   lazy: false,
+  onClick: () => { },
 }
 
 ImageCard.propTypes = {
   src: PropTypes.string.isRequired,
   lazy: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 
 export { ImageCard }

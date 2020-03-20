@@ -23,21 +23,21 @@ class Experimental extends Component {
         <Swip defaultIndex={1}>
           <SwipChild xs={24} md={8}>
             <Row justify="center">
-              <Col xs={20}>
+              <Col xs={22}>
                 <Explorer />
               </Col>
             </Row>
           </SwipChild>
           <SwipChild xs={24} md={12}>
             <Row justify="center">
-              <Col xs={20}>
+              <Col xs={22}>
                 <Newsfeed />
               </Col>
             </Row>
           </SwipChild>
           <SwipChild xs={24} md={4}>
             <Row justify="center">
-              <Col xs={20}>
+              <Col xs={22}>
                 <RightSider />
               </Col>
             </Row>

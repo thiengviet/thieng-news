@@ -11,6 +11,8 @@ import { loremIpsum } from "lorem-ipsum";
 import moment from 'moment';
 import themes from 'static/styles/themes';
 import BottomDrawer from './drawer';
+import { Parallax } from 'rc-scroll-anim';
+import LazyLoad from 'react-lazyload';
 
 
 class Status extends Component {
@@ -41,27 +43,35 @@ class Status extends Component {
 
   render() {
     return <Row gutter={[0, themes.globalVerticalGutter]}>
-      <Col xs={24}>
-        <ImageCard src={this.getRandImg()} lazy />
-      </Col>
-      <Col xs={24}>
-        <Row gutter={[0, 0]}>
-          <Col xs={24}>
-            <StandardComment
-              avatar={this.state.img}
-              name={'Lionel Messi'}
-              content={loremIpsum({ count: 2, units: 'sentence' })}
-              time={moment().fromNow()} />
-          </Col>
-          <Col xs={24}>
-            <Action
-              onShare={this.onOpen}
-              onLike={this.onOpen}
-              onComment={this.onOpen} />
-          </Col>
-        </Row>
-      </Col>
-      <BottomDrawer visible={this.state.visible} onClose={this.onClose} />
+      <Parallax animation={{ y: 0 }}
+        style={{ transform: "translateY(50px)", width: "100%" }} >
+        <Col xs={24}>
+          <ImageCard src={this.getRandImg()} onClick={this.onOpen} lazy />
+        </Col>
+      </Parallax>
+      <Parallax animation={{ y: 0 }}
+        style={{ transform: "translateY(50px)", width: "100%" }} >
+        <Col xs={24}>
+          <Row gutter={[0, 0]}>
+            <Col xs={24}>
+              <StandardComment
+                avatar={this.state.img}
+                name={'Lionel Messi'}
+                content={loremIpsum({ count: 2, units: 'sentence' })}
+                time={moment().fromNow()} />
+            </Col>
+            <Col xs={24}>
+              <Action
+                onShare={this.onOpen}
+                onLike={this.onOpen}
+                onComment={this.onOpen} />
+            </Col>
+          </Row>
+        </Col>
+      </Parallax>
+      <LazyLoad height={500} offset={500}>
+        <BottomDrawer visible={this.state.visible} onClose={this.onClose} />
+      </LazyLoad>
     </Row>
   }
 }

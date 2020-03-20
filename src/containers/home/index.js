@@ -15,7 +15,7 @@ class Home extends Component {
       <Col xs={22} md={10} xl={8} xxl={6}>
         <Row gutter={[0, themes.globalVerticalGutter]}>
           <Col span={24}>
-            <Typography.Title>Thieng Design</Typography.Title>
+            <Typography.Title>Logo Here</Typography.Title>
           </Col>
           <Col span={24}>
             <Tool />
