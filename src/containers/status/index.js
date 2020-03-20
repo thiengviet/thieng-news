@@ -18,7 +18,7 @@ class Status extends Component {
     super();
 
     this.state = {
-      img: "https://source.unsplash.com/random?portrait",
+      img: 'https://source.unsplash.com/random?portrait',
       visible: false
     }
   }
@@ -26,7 +26,7 @@ class Status extends Component {
   getRandImg = () => {
     let rand = Math.floor(Math.random() * 10);
     let width = (rand + 5) * 100;
-    let height = Math.floor(width * 9 / 1600) * 100;
+    let height = Math.floor(width * 3 / 400) * 100;
     let url = `https://source.unsplash.com/random/${width}x${height}`;
     return url
   }

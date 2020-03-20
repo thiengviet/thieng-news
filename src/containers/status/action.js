@@ -27,7 +27,7 @@ function Action(props) {
           <Row gutter={[8, 0]} justify="end" align="middle">
             <Col flex="0 1 auto">
               <NeonButton
-                color={themes.globalMinorColor}
+                color={themes.globalMinorColorOne}
                 icon={<MessageFilled />}
                 onClick={props.onComment} />
             </Col>

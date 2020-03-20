@@ -5,9 +5,10 @@ const globalConfig = {
   globalHorizontalGutter: { md: 56, lg: 96, xl: 128, xxl: 136 },
   globalVerticalGutter: 72,
   globalBodyBackgroundColor: "#f3f8fe",
-  globalPrimaryColor: "#fe536c",
+  globalPrimaryColor: "#ff3e3c",
   globalSecondaryColor: "#1be2ff",
-  globalMinorColor: "#6e45ff",
+  globalMinorColorOne: "#6e45ff",
+  globalMinorColorTwo: "#ff9b21",
 }
 
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less

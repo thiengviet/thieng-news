@@ -25,7 +25,7 @@ class BottomDrawer extends Component {
         return this.setState({ height: DEFAULT_HEIGHT });
   }
 
-  onSwipedDown = (data) => {
+  onSwiped = (data) => {
     console.log(data);
     if (data.velocity > 1) return this.props.onClose();
     if (data.absY > 400) return this.props.onClose();
@@ -33,17 +33,18 @@ class BottomDrawer extends Component {
   }
 
   onSwiping = (data) => {
+    let direction = data.deltaY > 0;
     let deltaY = Math.floor(data.absY);
-    let height = `calc(${DEFAULT_HEIGHT} - ${deltaY}px)`;
+    let height = `calc(${DEFAULT_HEIGHT} ${direction ? '+' : '-'} ${deltaY}px)`;
     this.setState({ height });
   }
 
   header = () => {
     return <Swipeable
-      onSwipedDown={this.onSwipedDown}
+      onSwiped={this.onSwiped}
       onSwiping={this.onSwiping}
-      delta={0}
-      trackMouse
+      delta={5}
+      style={{ margin: "-16px -24px", padding: "16px 24px" }}
     >
       <Row justify="center">
         <Col xs={4} md={2} xl={1}
@@ -55,7 +56,7 @@ class BottomDrawer extends Component {
           <Typography.Text>Basic Drawer</Typography.Text>
         </Col>
       </Row>
-    </Swipeable>
+    </Swipeable >
   }
 
   render() {

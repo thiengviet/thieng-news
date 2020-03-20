@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import Status from 'containers/status';
+import Form from 'containers/form';
+import themes from 'static/styles/themes';
 
 
 class NewsFeed extends Component {
@@ -16,7 +18,10 @@ class NewsFeed extends Component {
   }
 
   render() {
-    return <Row gutter={[8, 0]} justify="center">
+    return <Row gutter={[8, themes.globalVerticalGutter]} justify="center">
+      <Col span={24}>
+        <Form />
+      </Col>
       <Col span={24}>
         <Status statusId={'0'} />
         <Status statusId={'0'} />

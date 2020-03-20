@@ -12,6 +12,16 @@ import themes from 'static/styles/themes';
 
 
 /**
+ * Plank card
+ */
+function PlankCard(props) {
+  return <Card {...props}>
+  </Card>
+}
+export { PlankCard }
+
+
+/**
  * Image card
  */
 function ImageCard(props) {
