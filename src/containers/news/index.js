@@ -8,7 +8,7 @@ import { loremIpsum } from "lorem-ipsum";
 
 class News extends Component {
   render() {
-    return <Row>
+    return <Row gutter={[0, 16]}>
       <Col span={24}>
         <Typography.Title>
           {loremIpsum({ units: 'sentence' })}

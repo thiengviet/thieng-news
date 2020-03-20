@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Row, Col, Modal } from 'antd';
+import { Row, Col } from 'antd';
 import { ImageCard } from 'components/cards';
 import { StandardComment } from 'components/comments';
 import Action from './action';
 import { loremIpsum } from "lorem-ipsum";
 import moment from 'moment';
 import themes from 'static/styles/themes';
-import { MdClose } from 'react-icons/md';
+import BottomDrawer from './drawer';
 
 
 class Status extends Component {
@@ -24,8 +24,10 @@ class Status extends Component {
   }
 
   getRandImg = () => {
-    let rand = Math.floor(Math.random() * 1000) + 600;
-    let url = `https://source.unsplash.com/random/${rand}x${rand}`;
+    let rand = Math.floor(Math.random() * 10);
+    let width = (rand + 5) * 100;
+    let height = Math.floor(width * 9 / 1600) * 100;
+    let url = `https://source.unsplash.com/random/${width}x${height}`;
     return url
   }
 
@@ -48,7 +50,7 @@ class Status extends Component {
             <StandardComment
               avatar={this.state.img}
               name={'Lionel Messi'}
-              content={loremIpsum({ units: 'paragraph' })}
+              content={loremIpsum({ count: 2, units: 'sentence' })}
               time={moment().fromNow()} />
           </Col>
           <Col xs={24}>
@@ -59,17 +61,7 @@ class Status extends Component {
           </Col>
         </Row>
       </Col>
-      <Modal
-        title="Basic Modal"
-        visible={this.state.visible}
-        onOk={this.onClose}
-        onCancel={this.onClose}
-        closeIcon={<MdClose />}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
+      <BottomDrawer visible={this.state.visible} onClose={this.onClose} />
     </Row>
   }
 }

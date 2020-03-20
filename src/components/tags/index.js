@@ -12,7 +12,7 @@ function HashTag(props) {
   return <Row gutter={[0, 16]}>
     <Col span={24}>
       <Row justify="space-between">
-        <Col span={20}>
+        <Col span={20} onClick={props.onClick} style={{ cursor: "pointer" }}>
           <Typography.Text strong>{props.tag}</Typography.Text>
         </Col>
         <Col span={4}>
@@ -32,12 +32,14 @@ function HashTag(props) {
 
 HashTag.defaultProps = {
   count: 0,
+  onClick: () => { console.log('ada') },
 }
 
 HashTag.propsType = {
   tag: PropsType.string.isRequired,
   count: PropsType.number,
   description: PropsType.string,
+  onClick: PropsType.func,
 }
 
 export { HashTag }

@@ -18,6 +18,9 @@ module.exports = {
   "@card-shadow": "0px 20px 30px 2px rgba(199, 213, 239, 1)",
   // Avatar
   "@avatar-border-radius": "16px",
+  // Modal
+  "@modal-footer-padding-vertical": "16px",
+  "@modal-footer-padding-horizontal": "24px",
   // For personale
   globalHorizontalGutter: { md: 56, lg: 96, xl: 128, xxl: 136 },
   globalVerticalGutter: 72,
