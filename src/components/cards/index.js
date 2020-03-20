@@ -8,6 +8,7 @@ import { NeonAvatar } from 'components/avatars';
 import { IoIosAdd } from "react-icons/io";
 import { IconOnlyButton } from 'components/buttons';
 import { CloudFilled } from '@ant-design/icons';
+import themes from 'static/styles/themes';
 
 
 /**
@@ -81,7 +82,10 @@ function UserCard(props) {
                 </Col>
                 {props.online ? <Col flex="0 1 auto">
                   <Row align="middle" style={{ height: "100%" }}>
-                    <CloudFilled style={{ color: "#1be2ff", filter: "drop-shadow(0px 10px 10px #1be2ffff)" }} />
+                    <CloudFilled style={{
+                      color: themes.globalSecondaryColor,
+                      filter: `drop-shadow(0px 10px 10px ${themes.globalSecondaryColor})`
+                    }} />
                   </Row>
                 </Col> : null}
               </Row>

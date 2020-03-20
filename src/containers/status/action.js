@@ -4,6 +4,7 @@ import { Typography, Row, Col } from 'antd';
 import { ShareAltOutlined, MessageFilled, HeartFilled } from '@ant-design/icons';
 import { IconOnlyButton, NeonButton } from 'components/buttons';
 import utils from 'helpers/utils';
+import themes from 'static/styles/themes';
 
 
 function Action(props) {
@@ -26,7 +27,7 @@ function Action(props) {
           <Row gutter={[8, 0]} justify="end" align="middle">
             <Col flex="0 1 auto">
               <NeonButton
-                color="#6e45ff"
+                color={themes.globalMinorColor}
                 icon={<MessageFilled />}
                 onClick={props.onComment} />
             </Col>
@@ -39,7 +40,7 @@ function Action(props) {
           <Row gutter={[8, 0]} justify="end" align="middle">
             <Col flex="0 1 auto">
               <NeonButton
-                color="#fe536c"
+                color={themes.globalPrimaryColor}
                 icon={<HeartFilled />}
                 onClick={props.onLike} />
             </Col>
