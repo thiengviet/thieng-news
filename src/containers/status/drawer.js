@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Drawer, Typography } from 'antd';
+import { Drawer, Typography, Row, Col } from 'antd';
 import { loremIpsum } from "lorem-ipsum";
 import { Swipeable } from 'react-swipeable';
 
@@ -39,7 +39,23 @@ class BottomDrawer extends Component {
   }
 
   header = () => {
-    return <Swipeable onSwipedDown={this.onSwipedDown} onSwiping={this.onSwiping}>"Basic Drawer"</Swipeable>
+    return <Swipeable
+      onSwipedDown={this.onSwipedDown}
+      onSwiping={this.onSwiping}
+      delta={0}
+      trackMouse
+    >
+      <Row justify="center">
+        <Col xs={4} md={2} xl={1}
+          style={{ backgroundColor: "#000000a6", height: "4px", borderRadius: "2px" }}
+        />
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Typography.Text>Basic Drawer</Typography.Text>
+        </Col>
+      </Row>
+    </Swipeable>
   }
 
   render() {
