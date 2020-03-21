@@ -9,19 +9,25 @@ import Header from 'containers/header';
 import Home from 'containers/home';
 import Experimental from 'containers/experimental';
 
-import { setScreen } from 'modules/ui.reducer';
+import { setScreen, setScrollEnd } from 'modules/ui.reducer';
 
 class App extends Component {
   constructor(props) {
     super(props);
-
     props.setScreen(window.innerWidth);
   }
-
 
   componentDidMount() {
     window.onresize = () => {
       this.props.setScreen(window.innerWidth);
+    }
+    window.onscroll = () => {
+      let currentY = window.innerHeight + window.scrollY;
+      let maxY = document.getElementById("root").offsetHeight;
+      if (currentY >= maxY && !this.props.ui.scrollEnd)
+        return this.props.setScrollEnd(true);
+      else if (this.props.ui.scrollEnd)
+        return this.props.setScrollEnd(false);
     }
   }
 
@@ -50,6 +56,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   setScreen,
+  setScrollEnd,
 }, dispatch);
 
 export default withRouter(connect(

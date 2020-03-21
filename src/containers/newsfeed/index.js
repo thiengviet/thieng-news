@@ -13,8 +13,13 @@ class NewsFeed extends Component {
     super();
 
     this.state = {
-      data: 'Typography'
+      total: 5
     }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.ui.scrollEnd !== this.props.ui.scrollEnd && this.props.ui.scrollEnd)
+      this.setState({ total: this.state.total + 5 });
   }
 
   render() {
@@ -23,16 +28,16 @@ class NewsFeed extends Component {
         <Form />
       </Col>
       <Col span={24}>
-        <Status statusId={'0'} />
-        <Status statusId={'0'} />
-        <Status statusId={'0'} />
-        <Status statusId={'0'} />
+        {
+          [...Array(this.state.total).keys()].map(i => <Status key={i} statusId={String(i)} />)
+        }
       </Col>
     </Row>
   }
 }
 
 const mapStateToProps = state => ({
+  ui: state.ui,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
