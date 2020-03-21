@@ -94,7 +94,12 @@ class Menu extends Component {
           </Col>
       }
       <Col flex="0 1 auto">
-        <Popover placement="topRight" content={this.settings()} trigger="click">
+        <Popover
+          placement="topRight"
+          content={this.settings()}
+          trigger="click"
+          overlayStyle={{position: "fixed"}}
+        >
           <IconOnlyButton icon={<SettingOutlined />} />
         </Popover>
       </Col>
