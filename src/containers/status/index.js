@@ -50,7 +50,7 @@ class Status extends Component {
         </Col>
       </Parallax>
       <Parallax animation={{ y: 0 }}
-        style={{ transform: "translateY(50px)", width: "100%" }} >
+        style={{ transform: "translateY(30px)", width: "100%" }} >
         <Col xs={24}>
           <Row gutter={[0, 0]}>
             <Col xs={24}>
