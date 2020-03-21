@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col, Badge } from 'antd';
-import { BellOutlined, UserOutlined, SettingOutlined, TeamOutlined } from '@ant-design/icons';
+import {
+  BellOutlined, UserOutlined,
+  SettingOutlined, TeamOutlined,
+  LoginOutlined, LogoutOutlined,
+} from '@ant-design/icons';
 import { IconOnlyButton } from 'components/buttons';
+import PropTypes from 'prop-types';
+import { logOut } from 'modules/auth.reducer';
 
 class Menu extends Component {
   constructor() {
@@ -36,9 +42,19 @@ class Menu extends Component {
       <Col flex="0 1 auto">
         <IconOnlyButton icon={<TeamOutlined />} />
       </Col>
-      <Col flex="0 1 auto">
-        <IconOnlyButton icon={<UserOutlined />} onClick={() => this.to('/user')} />
-      </Col>
+      {
+        this.props.auth.isValid ? <Fragment>
+          <Col flex="0 1 auto">
+            <IconOnlyButton icon={<UserOutlined />} onClick={() => this.to('/user')} />
+          </Col>
+          <Col flex="0 1 auto">
+            <IconOnlyButton icon={<LogoutOutlined />} onClick={this.props.logOut} />
+          </Col>
+        </Fragment> :
+          <Col flex="0 1 auto">
+            <IconOnlyButton icon={<LoginOutlined />} onClick={this.props.onUser} />
+          </Col>
+      }
       <Col flex="0 1 auto">
         <IconOnlyButton icon={<SettingOutlined />} onClick={() => this.to('/experimental')} />
       </Col>
@@ -46,10 +62,16 @@ class Menu extends Component {
   }
 }
 
+Menu.propTypes = {
+  onUser: PropTypes.func.isRequired,
+}
+
 const mapStateToProps = state => ({
+  auth: state.auth
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  logOut,
 }, dispatch);
 
 export default withRouter(connect(

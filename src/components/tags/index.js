@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Typography } from 'antd';
-import PropsType from 'prop-types';
+import PropTypes from 'prop-types';
 import utils from 'helpers/utils';
 import { Tooltip } from 'antd';
 
@@ -35,11 +35,11 @@ HashTag.defaultProps = {
   onClick: () => { console.log('ada') },
 }
 
-HashTag.propsType = {
-  tag: PropsType.string.isRequired,
-  count: PropsType.number,
-  description: PropsType.string,
-  onClick: PropsType.func,
+HashTag.propTypes = {
+  tag: PropTypes.string.isRequired,
+  count: PropTypes.number,
+  description: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export { HashTag }

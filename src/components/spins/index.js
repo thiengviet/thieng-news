@@ -1,5 +1,5 @@
 import React from 'react';
-import PropsType from 'prop-types';
+import PropTypes from 'prop-types';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -23,7 +23,7 @@ function CircleSpin(props) {
 CircleSpin.defaultProps = {
   size: 'medium',
 }
-CircleSpin.propsType = {
-  size: PropsType.string,
+CircleSpin.propTypes = {
+  size: PropTypes.string,
 }
 export { CircleSpin }

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropsType from 'prop-types';
+import PropTypes from 'prop-types';
 import { Row } from 'antd';
 
 
@@ -12,8 +12,8 @@ Drain.defaultProps = {
   height: 50
 }
 
-Drain.propsType = {
-  height: PropsType.number,
+Drain.propTypes = {
+  height: PropTypes.number,
 }
 
 export { Drain }

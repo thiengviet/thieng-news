@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import PropsType from 'prop-types';
+import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { Row, Col } from 'antd';
 import { setSwipIndex } from 'modules/ui.reducer';
@@ -84,9 +84,9 @@ Swip.defaultProps = {
   defaultIndex: 0,
 }
 
-Swip.propsType = {
-  children: PropsType.object,
-  defaultIndex: PropsType.number,
+Swip.propTypes = {
+  children: PropTypes.object,
+  defaultIndex: PropTypes.number,
 }
 
 export default withRouter(connect(
@@ -101,13 +101,13 @@ export default withRouter(connect(
 function SwipChild(props) {
   return <Col {...props} />
 }
-SwipChild.propsType = {
-  children: PropsType.object,
-  xs: PropsType.number,
-  sm: PropsType.number,
-  md: PropsType.number,
-  lg: PropsType.number,
-  xl: PropsType.number,
-  xxl: PropsType.number,
+SwipChild.propTypes = {
+  children: PropTypes.object,
+  xs: PropTypes.number,
+  sm: PropTypes.number,
+  md: PropTypes.number,
+  lg: PropTypes.number,
+  xl: PropTypes.number,
+  xxl: PropTypes.number,
 }
 export { SwipChild }
