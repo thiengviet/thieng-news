@@ -4,13 +4,18 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { PlankCard, UserCard } from 'components/cards';
+import theme from 'static/styles/themes';
 
 class Network extends Component {
 
   render() {
     return <Row>
       <Col span={24}>
-        <PlankCard screen={this.props.ui.type} hoverable={false}>
+        <PlankCard screen={this.props.ui.type}
+          style={{
+            backgroundColor: theme.globalColors.purple,
+            color: "#ffffff",
+          }}>
           <Row gutter={[0, 32]}>
             <Col span={24}>
               <UserCard

@@ -46,10 +46,10 @@ class Form extends Component {
             <Col span={24}>
               <Row style={{ flexWrap: "nowrap" }} gutter={[16, 0]} justify="end" align="middle">
                 <Col flex="0 1 auto">
-                  <NeonButton color={themes.globalMinorColorOne} icon={<PaperClipOutlined />} />
+                  <NeonButton color={themes.globalColors.purple} icon={<PaperClipOutlined />} />
                 </Col>
                 <Col flex="0 1 auto">
-                  <NeonButton color={themes.globalMinorColorTwo} icon={<SmileFilled />} />
+                  <NeonButton color={themes.globalColors.yellow} icon={<SmileFilled />} />
                 </Col>
                 <Col flex="0 1 auto">
                   <Button type="primary">Send</Button>

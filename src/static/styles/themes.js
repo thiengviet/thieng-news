@@ -7,8 +7,10 @@ const globalConfig = {
   globalBodyBackgroundColor: "#f3f8fe",
   globalPrimaryColor: "#ff3e3c",
   globalSecondaryColor: "#1be2ff",
-  globalMinorColorOne: "#6e45ff",
-  globalMinorColorTwo: "#ff9b21",
+  globalColors: {
+    purple: "#6662b5",
+    yellow: "#ff9b21",
+  }
 }
 
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less

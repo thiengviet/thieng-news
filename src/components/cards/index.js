@@ -15,15 +15,16 @@ import themes from 'static/styles/themes';
  * Plank card
  */
 function PlankCard(props) {
+  const iconColor = props.style.color ? { fill: props.style.color } : null;
   const getMargin = () => {
     switch (props.screen) {
       case 'xs':
-        return "0 16px";
+        return "0px 16px";
       default:
         return "8px 24px";
     }
   }
-  return <Card hoverable={props.hoverable}>
+  return <Card hoverable={props.hoverable} style={{ ...iconColor, ...props.style }}>
     <Row style={{ margin: getMargin() }}>
       <Col span={24}>
         {props.children}
@@ -33,11 +34,13 @@ function PlankCard(props) {
 }
 
 PlankCard.defaultProps = {
+  style: {},
   screen: 'lg',
   hoverable: true,
 }
 
 PlankCard.propTypes = {
+  style: PropTypes.object,
   screen: PropTypes.string,
   hoverable: PropTypes.bool,
 }
@@ -52,7 +55,7 @@ function ImageCard(props) {
   const [loading, setLoading] = useState(true);
 
   const imgLoaded = () => {
- setLoading(false);
+    setLoading(false);
   }
 
   const MainComponent = <Card
@@ -117,7 +120,7 @@ function UserCard(props) {
             <Col span={24}>
               <Row gutter={[16, 0]} style={{ flexWrap: "nowrap" }} >
                 <Col flex="0 1 auto">
-                  <Typography.Text strong>{props.name}</Typography.Text>
+                  <Typography.Text style={{ color: "inherit" }} strong>{props.name}</Typography.Text>
                 </Col>
                 {props.online ? <Col flex="0 1 auto">
                   <Row align="middle" style={{ height: "100%" }}>
@@ -130,7 +133,7 @@ function UserCard(props) {
               </Row>
             </Col>
             <Col span={24}>
-              <Typography.Text>{props.mention}</Typography.Text>
+              <Typography.Text style={{ color: "inherit" }}>{props.mention}</Typography.Text>
             </Col>
           </Row>
         </Col>
@@ -139,7 +142,7 @@ function UserCard(props) {
     <Col span={4}>
       <Row justify="end" align="middle" style={{ height: "100%" }}>
         <Col flex="0 1 auto">
-          <IconOnlyButton icon={<IoIosAdd />} onClick={props.onAdd} />
+          <IconOnlyButton icon={<IoIosAdd style={{ fill: "inherit" }} />} onClick={props.onAdd} />
         </Col>
       </Row>
     </Col>

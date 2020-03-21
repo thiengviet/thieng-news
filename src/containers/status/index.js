@@ -10,7 +10,7 @@ import Action from './action';
 import { loremIpsum } from "lorem-ipsum";
 import moment from 'moment';
 import themes from 'static/styles/themes';
-import BottomDrawer from './drawer';
+import Shelf from './shelf';
 import { Parallax } from 'rc-scroll-anim';
 import LazyLoad from 'react-lazyload';
 
@@ -70,7 +70,7 @@ class Status extends Component {
         </Col>
       </Parallax>
       <LazyLoad height={500} offset={500}>
-        <BottomDrawer visible={this.state.visible} onClose={this.onClose} />
+        <Shelf visible={this.state.visible} onClose={this.onClose} />
       </LazyLoad>
     </Row>
   }
