@@ -85,7 +85,10 @@ Swip.defaultProps = {
 }
 
 Swip.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+  ]),
   defaultIndex: PropTypes.number,
 }
 
@@ -102,7 +105,10 @@ function SwipChild(props) {
   return <Col {...props} />
 }
 SwipChild.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+  ]),
   xs: PropTypes.number,
   sm: PropTypes.number,
   md: PropTypes.number,

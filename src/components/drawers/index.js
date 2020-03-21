@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Drawer, Row, Col } from 'antd';
 import { Swipeable } from 'react-swipeable';
+import { IoMdClose } from 'react-icons/io';
 
 
 const DEFAULT_HEIGHT = '95%';
@@ -43,8 +44,12 @@ class BottomDrawer extends Component {
       style={{ margin: "-16px -24px", padding: "16px 24px" }}
     >
       <Row justify="center">
-        <Col xs={4} md={2} xl={1}
+        <Col xs={4} md={2}
           style={{ backgroundColor: "#000000a6", height: "4px", borderRadius: "2px" }}
+        />
+        <IoMdClose
+          style={{ position: "absolute", top: 12, right: 20, cursor: "pointer" }}
+          onClick={this.props.onClose}
         />
       </Row>
     </Swipeable >
