@@ -40,7 +40,7 @@ class App extends Component {
         <Switch>
           <Redirect exact from="/" to="/home" />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/experimental" component={Experimental} />
+          <Route exact path="/user" component={Experimental} />
         </Switch>
       </Col>
       <Col xs={24} >
