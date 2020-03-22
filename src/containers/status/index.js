@@ -20,7 +20,6 @@ class Status extends Component {
     super();
 
     this.state = {
-      img: 'https://source.unsplash.com/random?portrait',
       visible: false
     }
   }
@@ -55,15 +54,15 @@ class Status extends Component {
           <Row gutter={[0, 0]}>
             <Col xs={24}>
               <StandardComment
-                avatar={this.state.img}
+                avatar='https://source.unsplash.com/random?portrait'
                 name={'Lionel Messi'}
                 content={loremIpsum({ count: 2, units: 'sentence' })}
                 time={moment().fromNow()} />
             </Col>
             <Col xs={24}>
               <Action
-                onShare={this.onOpen}
-                onLike={this.onOpen}
+                onShare={() => { }}
+                onLike={() => { }}
                 onComment={this.onOpen} />
             </Col>
           </Row>

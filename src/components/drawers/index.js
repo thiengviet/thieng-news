@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Drawer, Row, Col } from 'antd';
+import {
+  Drawer, Row,
+  Col, Tooltip,
+  Popover, Typography
+} from 'antd';
 import { Swipeable } from 'react-swipeable';
-import { IoMdClose } from 'react-icons/io';
+import { FiMoreHorizontal } from 'react-icons/fi';
+import utils from 'helpers/utils';
 
 
 const DEFAULT_HEIGHT = '95%';
@@ -36,6 +41,14 @@ class BottomDrawer extends Component {
     this.setState({ height });
   }
 
+  settings = () => {
+    return <Row>
+      <Col span={24}>
+        <Typography.Text>Test</Typography.Text>
+      </Col>
+    </Row>
+  }
+
   header = () => {
     return <Swipeable
       onSwiped={this.onSwiped}
@@ -44,13 +57,23 @@ class BottomDrawer extends Component {
       style={{ margin: "-16px -24px", padding: "16px 24px" }}
     >
       <Row justify="center">
-        <Col xs={4} md={2}
-          style={{ backgroundColor: "#000000a6", height: "4px", borderRadius: "2px" }}
-        />
-        <IoMdClose
-          style={{ position: "absolute", top: 12, right: 20, cursor: "pointer" }}
-          onClick={this.props.onClose}
-        />
+        {
+          utils.checkDevice() ?
+            <Col xs={4} md={2}
+              style={{ backgroundColor: "#000000a6", height: "4px", borderRadius: "2px", cursor: "pointer" }}
+            /> :
+            <Tooltip title="Click to close">
+              <Col xs={4} md={2}
+                style={{ backgroundColor: "#000000a6", height: "4px", borderRadius: "2px", cursor: "pointer" }}
+                onClick={this.props.onClose}
+              />
+            </Tooltip>
+        }
+        <Popover content={this.settings()} placement="bottomRight" trigger="click">
+          <FiMoreHorizontal
+            style={{ position: "absolute", top: 8, right: 22, cursor: "pointer", fontSize: 20 }}
+          />
+        </Popover>
       </Row>
     </Swipeable >
   }

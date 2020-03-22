@@ -8,7 +8,7 @@ import themes from 'static/styles/themes';
 
 
 function Action(props) {
-  return <Row justify="space-between" align="middle" style={{ flexWrap: "nowrap" }}>
+  return <Row align="middle" style={{ flexWrap: "nowrap" }}>
     <Col flex="0 1 auto">
       <Row gutter={[8, 0]} justify="start" align="middle">
         <Col flex="0 1 auto">
@@ -21,9 +21,9 @@ function Action(props) {
         </Col>
       </Row>
     </Col>
-    <Col flex="0 1 auto">
+    <Col flex="1 1 auto">
       <Row gutter={[32, 0]} justify="end" align="middle">
-        <Col>
+        <Col flex="0 1 auto">
           <Row gutter={[8, 0]} justify="end" align="middle">
             <Col flex="0 1 auto">
               <NeonButton

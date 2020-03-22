@@ -7,7 +7,8 @@ import LazyLoad from 'react-lazyload';
 import { NeonAvatar } from 'components/avatars';
 import { IoIosAdd } from "react-icons/io";
 import { IconOnlyButton } from 'components/buttons';
-import { CloudFilled } from '@ant-design/icons';
+import { CloudFilled, HeartFilled } from '@ant-design/icons';
+import { NeonButton } from 'components/buttons';
 import themes from 'static/styles/themes';
 
 
@@ -109,35 +110,69 @@ export { ImageCard }
  * User card
  */
 function UserCard(props) {
-  return <Row>
-    <Col span={20} onClick={props.onUser}>
-      <Row gutter={[16, 0]} align="middle" style={{ flexWrap: "nowrap" }}>
-        <Col flex="0 1 auto">
-          <NeonAvatar src={props.src} />
-        </Col>
-        <Col flex="0 1 auto">
-          <Row align="stretch">
-            <Col span={24}>
-              <Row gutter={[16, 0]} style={{ flexWrap: "nowrap" }} >
-                <Col flex="0 1 auto">
-                  <Typography.Text style={{ color: "inherit" }} strong>{props.name}</Typography.Text>
-                </Col>
-                {props.online ? <Col flex="0 1 auto">
-                  <Row align="middle" style={{ height: "100%" }}>
-                    <CloudFilled style={{
-                      color: themes.globalSecondaryColor,
-                      filter: `drop-shadow(0px 10px 10px ${themes.globalSecondaryColor})`
-                    }} />
-                  </Row>
-                </Col> : null}
+  return <Row
+    gutter={[16, 0]}
+    align="middle"
+    style={{ flexWrap: "nowrap" }}
+    onClick={props.onUser}
+  >
+    <Col flex="0 1 auto">
+      <NeonAvatar src={props.src} />
+    </Col>
+    <Col flex="0 1 auto">
+      <Row align="stretch">
+        <Col span={24}>
+          <Row gutter={[16, 0]} style={{ flexWrap: "nowrap" }} >
+            <Col flex="0 1 auto">
+              <Typography.Text style={{ color: "inherit" }} strong>{props.name}</Typography.Text>
+            </Col>
+            {props.online ? <Col flex="0 1 auto">
+              <Row align="middle" style={{ height: "100%" }}>
+                <CloudFilled style={{
+                  color: themes.globalSecondaryColor,
+                  filter: `drop-shadow(0px 10px 10px ${themes.globalSecondaryColor})`
+                }} />
               </Row>
-            </Col>
-            <Col span={24}>
-              <Typography.Text style={{ color: "inherit" }}>{props.mention}</Typography.Text>
-            </Col>
+            </Col> : null}
           </Row>
         </Col>
+        <Col span={24}>
+          <Typography.Text style={{ color: "inherit" }}>{props.mention}</Typography.Text>
+        </Col>
       </Row>
+    </Col>
+  </Row>
+}
+
+UserCard.defaultProps = {
+  online: false,
+  onUser: () => { },
+}
+
+UserCard.propTypes = {
+  src: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  mention: PropTypes.string.isRequired,
+  online: PropTypes.bool,
+  onUser: PropTypes.func,
+}
+
+export { UserCard }
+
+
+/**
+ * Stranger card
+ */
+function StrangerCard(props) {
+  return <Row>
+    <Col span={20}>
+      <UserCard
+        src={props.src}
+        name={props.name}
+        mention={props.mention}
+        online={props.online}
+        onUser={props.onUser}
+      />
     </Col>
     <Col span={4}>
       <Row justify="end" align="middle" style={{ height: "100%" }}>
@@ -149,19 +184,60 @@ function UserCard(props) {
   </Row>
 }
 
-UserCard.defaultProps = {
-  online: false,
+StrangerCard.defaultProps = {
   onAdd: () => { },
-  onUser: () => { },
 }
 
-UserCard.propTypes = {
+StrangerCard.propTypes = {
   src: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   mention: PropTypes.string.isRequired,
   online: PropTypes.bool,
-  onAdd: PropTypes.func,
   onUser: PropTypes.func,
+  onAdd: PropTypes.func,
 }
 
-export { UserCard }
+export { StrangerCard }
+
+
+/**
+ * Notification card
+ */
+
+function NotificationCard(props) {
+  return <Row gutter={[16, 0]} align="middle">
+    <Col span={18}>
+      <Row gutter={[16, 0]} align="middle" style={{ flexWrap: "nowrap" }}>
+        <Col flex="0 1 auto">
+          <NeonAvatar src={props.src} />
+        </Col>
+        <Col flex="0 1 auto">
+          <NeonButton icon={<HeartFilled />} color={themes.globalPrimaryColor} />
+        </Col>
+        <Col flex="0 1 auto">
+          <Typography.Text>{props.content}</Typography.Text>
+        </Col>
+      </Row>
+    </Col>
+    <Col span={6}>
+      <Row justify="end">
+        <Col flex="0 1 auto">
+          <Typography.Text type="secondary">{props.time}</Typography.Text>
+        </Col>
+      </Row>
+    </Col>
+  </Row>
+}
+
+NotificationCard.defaultProps = {
+  type: PropTypes.oneOf(["connect, like, comment, share, other"]),
+}
+
+NotificationCard.propTypes = {
+  src: PropTypes.string,
+  type: PropTypes.string,
+  content: PropTypes.string,
+  time: PropTypes.string,
+}
+
+export { NotificationCard }

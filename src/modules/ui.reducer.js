@@ -7,7 +7,7 @@ const defaultState = {
   width: 0,
   type: 'xs',
   swipIndex: 0,
-  scrollEnd: false
+  scrollEnd: false,
 }
 
 

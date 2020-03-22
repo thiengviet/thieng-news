@@ -2,7 +2,11 @@
 
 const globalConfig = {
   globalRadius: "24px",
-  globalHorizontalGutter: { md: 56, lg: 96, xl: 128, xxl: 136 },
+  globalHorizontalGutter: {
+    xs: 24, sm: 24,
+    md: 48, lg: 48,
+    xl: 72, xxl: 128
+  },
   globalVerticalGutter: 64,
   globalBodyBackgroundColor: "#f3f8fe",
   globalPrimaryColor: "#ff3e3c",
@@ -20,7 +24,7 @@ module.exports = {
   "@primary-color": globalConfig.globalPrimaryColor,
   // "@component-background": "#ffffff00",
   // Font
-  "@font-family": "'Raleway', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+  "@font-family": "'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
   // Border
   "@border-radius-base": "16px",
   "@border-style-base": "none",

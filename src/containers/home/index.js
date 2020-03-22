@@ -7,12 +7,13 @@ import Newsfeed from 'containers/newsfeed';
 import Tool from 'containers/tool';
 import News from 'containers/news';
 import themes from 'static/styles/themes';
+import Notification from 'containers/notification';
 
 class Home extends Component {
 
   render() {
     return <Row gutter={[themes.globalHorizontalGutter, 0]} justify="center">
-      <Col xs={22} md={10} xl={8} xxl={6}>
+      <Col xs={22} md={10} xl={7} xxl={6}>
         <Row gutter={[0, themes.globalVerticalGutter]}>
           <Col span={24}>
             <Typography.Title>Logo Here</Typography.Title>
@@ -25,15 +26,19 @@ class Home extends Component {
           </Col>
         </Row>
       </Col>
-      <Col xs={22} md={12} xl={10} xxl={8}>
+      <Col xs={22} md={12} xl={9} xxl={8}>
         <Newsfeed />
       </Col>
+      {this.props.auth.isValid ? <Col xs={22} xl={6} xxl={4}>
+        <Notification />
+      </Col> : null}
     </Row>
   }
 }
 
 const mapStateToProps = state => ({
-  ui: state.ui
+  ui: state.ui,
+  auth: state.auth,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

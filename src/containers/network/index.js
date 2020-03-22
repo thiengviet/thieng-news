@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import { PlankCard, UserCard } from 'components/cards';
+import { PlankCard, StrangerCard } from 'components/cards';
 import theme from 'static/styles/themes';
 
 class Network extends Component {
@@ -18,14 +18,14 @@ class Network extends Component {
           }}>
           <Row gutter={[0, 32]}>
             <Col span={24}>
-              <UserCard
+              <StrangerCard
                 src="https://source.unsplash.com/random?portrait"
                 name="Hubert Blaine Wolfesch"
                 mention="@wolfesch"
               />
             </Col>
             <Col span={24}>
-              <UserCard
+              <StrangerCard
                 src="https://source.unsplash.com/random?portrait"
                 name="Lionel Messi"
                 mention="@leo"
@@ -33,7 +33,7 @@ class Network extends Component {
               />
             </Col>
             <Col span={24}>
-              <UserCard
+              <StrangerCard
                 src="https://source.unsplash.com/random?portrait"
                 name="Tu Phan"
                 mention="@tuphan"
