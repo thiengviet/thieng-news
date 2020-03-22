@@ -98,7 +98,7 @@ class Menu extends Component {
           placement="topRight"
           content={this.settings()}
           trigger="click"
-          overlayStyle={{position: "fixed"}}
+          overlayStyle={{ position: "fixed", width: "300px" }}
         >
           <IconOnlyButton icon={<SettingOutlined />} />
         </Popover>

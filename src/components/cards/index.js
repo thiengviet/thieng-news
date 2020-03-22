@@ -7,7 +7,10 @@ import LazyLoad from 'react-lazyload';
 import { NeonAvatar } from 'components/avatars';
 import { IoIosAdd } from "react-icons/io";
 import { IconOnlyButton } from 'components/buttons';
-import { CloudFilled, HeartFilled } from '@ant-design/icons';
+import {
+  CloudFilled, HeartFilled, MessageFilled,
+  NotificationFilled, UserAddOutlined
+} from '@ant-design/icons';
 import { NeonButton } from 'components/buttons';
 import themes from 'static/styles/themes';
 
@@ -205,14 +208,38 @@ export { StrangerCard }
  */
 
 function NotificationCard(props) {
+  const getIcon = (type) => {
+    switch (type) {
+      case 'connect':
+        return {
+          icon: <UserAddOutlined />,
+          color: themes.globalColors.purple
+        }
+      case 'like':
+        return {
+          icon: <HeartFilled />,
+          color: themes.globalPrimaryColor
+        }
+      case 'comment':
+        return {
+          icon: <MessageFilled />,
+          color: themes.globalSecondaryColor
+        }
+      default:
+        return {
+          icon: <NotificationFilled />,
+          color: themes.globalColors.yellow
+        }
+    }
+  }
   return <Row gutter={[16, 0]} align="middle">
     <Col span={18}>
       <Row gutter={[16, 0]} align="middle" style={{ flexWrap: "nowrap" }}>
         <Col flex="0 1 auto">
-          <NeonAvatar src={props.src} />
+          <NeonAvatar src={props.src} onClick={props.onUser} />
         </Col>
         <Col flex="0 1 auto">
-          <NeonButton icon={<HeartFilled />} color={themes.globalPrimaryColor} />
+          <NeonButton {...getIcon(props.type)} onClick={props.onDetail} />
         </Col>
         <Col flex="0 1 auto">
           <Typography.Text>{props.content}</Typography.Text>
@@ -230,14 +257,18 @@ function NotificationCard(props) {
 }
 
 NotificationCard.defaultProps = {
-  type: PropTypes.oneOf(["connect, like, comment, share, other"]),
+  type: 'other',
+  onUser: () => { },
+  onDetail: () => { },
 }
 
 NotificationCard.propTypes = {
   src: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['connect', 'like', 'comment', 'other']),
   content: PropTypes.string,
   time: PropTypes.string,
+  onUser: PropTypes.func,
+  onDetail: PropTypes.func,
 }
 
 export { NotificationCard }

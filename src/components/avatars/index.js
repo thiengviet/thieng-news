@@ -31,8 +31,9 @@ class NeonAvatar extends Component {
     return <Avatar
       size="large"
       shape="square"
-      style={this.state.shadow}
-      src={this.props.src} />
+      style={{ ...this.state.shadow, cursor: "pointer" }}
+      src={this.props.src}
+    />
   }
 }
 

@@ -16,7 +16,10 @@ class Notification extends Component {
         props.auth.avatar,
         'https://source.unsplash.com/random?portrait',
         'https://source.unsplash.com/random?portrait',
-        'https://source.unsplash.com/random?portrait'
+        'https://source.unsplash.com/random?portrait',
+        'https://source.unsplash.com/random?portrait',
+        'https://source.unsplash.com/random?portrait',
+        'https://source.unsplash.com/random?portrait',
       ]
     }
   }
@@ -26,13 +29,12 @@ class Notification extends Component {
       {
         this.state.sources.map((src, index) => <Col key={index} span={24}>
           <NotificationCard
-            type="like"
+            type={["connect", "like", "comment", "other"][Math.floor(Math.random() * 4)]}
             src={src}
             content={`${this.props.auth.displayname} like your post.`}
             time={moment().startOf('day').fromNow()}
           />
-        </Col>
-        )
+        </Col>)
       }
     </Row>
   }
