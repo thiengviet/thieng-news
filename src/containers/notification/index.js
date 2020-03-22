@@ -20,19 +20,22 @@ class Notification extends Component {
         'https://source.unsplash.com/random?portrait',
         'https://source.unsplash.com/random?portrait',
         'https://source.unsplash.com/random?portrait',
+        'https://source.unsplash.com/random?portrait',
+        'https://source.unsplash.com/random?portrait',
       ]
     }
   }
 
   render() {
-    return <Row gutter={[0, themes.globalVerticalGutter]}>
+    return <Row gutter={[0, themes.globalVerticalGutter / 2]}>
       {
         this.state.sources.map((src, index) => <Col key={index} span={24}>
           <NotificationCard
             type={["connect", "like", "comment", "other"][Math.floor(Math.random() * 4)]}
             src={src}
             content={`${this.props.auth.displayname} like your post.`}
-            time={moment().startOf('day').fromNow()}
+            time={moment().fromNow()}
+            notRead={index <= 2}
           />
         </Col>)
       }

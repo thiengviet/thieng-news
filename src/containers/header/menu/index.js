@@ -3,26 +3,28 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import {
-  Row, Col,
+  Row, Col, Typography,
   Badge, Popover,
-  Button, Switch, Typography,
-  Divider,
 } from 'antd';
 import {
   BellOutlined, UserOutlined,
   SettingOutlined, TeamOutlined,
-  LoginOutlined, LogoutOutlined,
+  LoginOutlined,
 } from '@ant-design/icons';
 import { IconOnlyButton } from 'components/buttons';
 import PropTypes from 'prop-types';
 import { logOut } from 'modules/auth.reducer';
+import { RightDrawer } from 'components/drawers';
+import { Setting } from './settings';
+import Notification from 'containers/notification';
 
 class Menu extends Component {
   constructor() {
     super();
 
     this.state = {
-      badge: false
+      badge: false,
+      visibleNotification: false,
     }
   }
 
@@ -31,45 +33,10 @@ class Menu extends Component {
   }
 
   onNotification = () => {
-    this.setState({ badge: !this.state.badge });
-  }
-
-  settings = () => {
-    return <Row>
-      <Col span={24}>
-        <Row gutter={[0, 16]}>
-          <Col span={24}>
-            <Row gutter={[16, 0]}>
-              <Col flex="0 1 auto">
-                <Switch defaultChecked />
-              </Col>
-              <Col flex="0 1 auto">
-                <Typography.Text>Allowed Navigation</Typography.Text>
-              </Col>
-            </Row>
-          </Col>
-          <Col span={24}>
-            <Row gutter={[16, 0]}>
-              <Col flex="0 1 auto">
-                <Switch defaultChecked />
-              </Col>
-              <Col flex="0 1 auto">
-                <Typography.Text>Dark Mode</Typography.Text>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Col>
-      <Divider />
-      <Col span={24}>
-        <Button
-          icon={<LogoutOutlined />}
-          onClick={this.props.logOut}
-          style={{ width: "100%" }}
-          disabled={!this.props.auth.isValid}
-        >Log Out</Button>
-      </Col>
-    </Row>
+    return this.setState({
+      badge: !this.state.badge,
+      visibleNotification: !this.state.visibleNotification,
+    });
   }
 
   render() {
@@ -96,13 +63,20 @@ class Menu extends Component {
       <Col flex="0 1 auto">
         <Popover
           placement="topRight"
-          content={this.settings()}
+          content={<Setting onLogout={this.props.logOut} disabled={!this.props.auth.isValid} />}
           trigger="click"
           overlayStyle={{ position: "fixed", width: "300px" }}
         >
           <IconOnlyButton icon={<SettingOutlined />} />
         </Popover>
       </Col>
+      <RightDrawer
+        visible={this.state.visibleNotification}
+        onClose={this.onNotification}
+        settings={<Typography.Text>Test</Typography.Text>}
+      >
+        <Notification />
+      </RightDrawer>
     </Row>
   }
 }

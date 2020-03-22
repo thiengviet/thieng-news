@@ -42,6 +42,7 @@ class Shelf extends Component {
     return <BottomDrawer
       visible={this.props.visible}
       onClose={this.props.onClose}
+      settings={<Typography.Text>Test</Typography.Text>}
     >
       <Row gutter={[24, 0]}>
         <Col xs={24} lg={17}>

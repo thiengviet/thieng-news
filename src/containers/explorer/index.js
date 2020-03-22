@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import { Typography, Card } from 'antd';
+import themes from 'static/styles/themes';
+import News from 'containers/news';
+import Network from 'containers/network';
+import Status from 'containers/status';
 
 
 class Explorer extends Component {
@@ -11,29 +14,25 @@ class Explorer extends Component {
     super();
 
     this.state = {
-      data: 'Typography'
+      total: 5
     }
   }
 
   render() {
-    return <Row gutter={[8, 0]} justify="center">
-      <Col xs={24} >
-        <Card
-          title="Default size card"
-          extra={<a href="/home">Home</a>}
-          style={{ width: 300 }}
-        >
-          <Card.Grid
-            style={{ width: '50%', textAlign: 'center' }}
-          >
-            <Typography.Text>Hoverable</Typography.Text>
-          </Card.Grid>
-          <Card.Grid
-            style={{ width: '50%', textAlign: 'center' }}
-            hoverable={false}>
-            <Typography.Text>Unhoverable</Typography.Text>
-          </Card.Grid>
-        </Card>
+    return <Row gutter={[0, themes.globalVerticalGutter]}>
+      <Col span={24}>
+        <News />
+      </Col>
+      <Col span={24}>
+        <Network />
+      </Col>
+      <Col span={24}>
+        <News />
+      </Col>
+      <Col span={24}>
+        {
+          [...Array(this.state.total).keys()].map(i => <Status key={i} statusId={String(i)} />)
+        }
       </Col>
     </Row>
   }

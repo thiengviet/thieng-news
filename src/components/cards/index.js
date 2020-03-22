@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Card, Typography } from 'antd';
+import {
+  Row, Col, Card,
+  Typography, Badge
+} from 'antd';
 import TweenOne from 'rc-tween-one';
 import { CircleSpin } from 'components/spins';
 import LazyLoad from 'react-lazyload';
@@ -232,26 +235,28 @@ function NotificationCard(props) {
         }
     }
   }
-  return <Row gutter={[16, 0]} align="middle">
-    <Col span={18}>
-      <Row gutter={[16, 0]} align="middle" style={{ flexWrap: "nowrap" }}>
-        <Col flex="0 1 auto">
-          <NeonAvatar src={props.src} onClick={props.onUser} />
-        </Col>
-        <Col flex="0 1 auto">
-          <NeonButton {...getIcon(props.type)} onClick={props.onDetail} />
-        </Col>
-        <Col flex="0 1 auto">
+  return <Row
+    gutter={[24, 0]}
+    align="middle"
+    style={{ flexWrap: "nowrap" }}
+  >
+    <Col flex="0 1 auto">
+      <Badge dot={props.notRead}>
+        <NeonAvatar src={props.src} onClick={props.onUser} />
+      </Badge>
+    </Col>
+    <Col flex="0 1 auto">
+      <Row>
+        <Col span={24}>
           <Typography.Text>{props.content}</Typography.Text>
         </Col>
-      </Row>
-    </Col>
-    <Col span={6}>
-      <Row justify="end">
-        <Col flex="0 1 auto">
+        <Col span={24}>
           <Typography.Text type="secondary">{props.time}</Typography.Text>
         </Col>
       </Row>
+    </Col>
+    <Col flex="0 1 auto">
+      <NeonButton {...getIcon(props.type)} onClick={props.onDetail} />
     </Col>
   </Row>
 }
@@ -260,6 +265,7 @@ NotificationCard.defaultProps = {
   type: 'other',
   onUser: () => { },
   onDetail: () => { },
+  notRead: false,
 }
 
 NotificationCard.propTypes = {
@@ -269,6 +275,7 @@ NotificationCard.propTypes = {
   time: PropTypes.string,
   onUser: PropTypes.func,
   onDetail: PropTypes.func,
+  notRead: PropTypes.bool,
 }
 
 export { NotificationCard }

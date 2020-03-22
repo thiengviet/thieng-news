@@ -2,36 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { Row, Col, Typography } from 'antd';
+import { Row, Col } from 'antd';
 import Newsfeed from 'containers/newsfeed';
 import Tool from 'containers/tool';
-import News from 'containers/news';
+import Explorer from 'containers/explorer';
 import themes from 'static/styles/themes';
-import Notification from 'containers/notification';
 
 class Home extends Component {
 
   render() {
-    return <Row gutter={[themes.globalHorizontalGutter, 0]} justify="center">
-      <Col xs={22} md={10} xl={7} xxl={6}>
-        <Row gutter={[0, themes.globalVerticalGutter]}>
-          <Col span={24}>
-            <Typography.Title>Logo Here</Typography.Title>
-          </Col>
-          <Col span={24}>
-            <Tool />
-          </Col>
-          <Col span={24}>
-            <News />
-          </Col>
-        </Row>
+    return <Row gutter={[themes.globalHorizontalGutter, 0]} justify="center" >
+      <Col xs={0} xl={6} xxl={4}>
+        <Tool />
       </Col>
       <Col xs={22} md={12} xl={9} xxl={8}>
         <Newsfeed />
       </Col>
-      {this.props.auth.isValid ? <Col xs={22} xl={6} xxl={4}>
-        <Notification />
-      </Col> : null}
+      <Col xs={22} md={10} xl={7} xxl={6}>
+        <Explorer />
+      </Col>
     </Row>
   }
 }
