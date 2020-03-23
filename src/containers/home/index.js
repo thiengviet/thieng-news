@@ -12,10 +12,10 @@ class Home extends Component {
 
   render() {
     return <Row gutter={[themes.globalHorizontalGutter, 0]} justify="center" >
-      <Col xs={0} xl={6} xxl={4}>
+      <Col xs={0} md={0} xl={6} xxl={5}>
         <Tool />
       </Col>
-      <Col xs={22} md={12} xl={9} xxl={8}>
+      <Col xs={22} md={12} xl={9} xxl={9}>
         <Newsfeed />
       </Col>
       <Col xs={22} md={10} xl={7} xxl={6}>

@@ -21,6 +21,9 @@ class Tool extends Component {
         <Col span={20}>
           <Trend />
         </Col>
+        <Col span={20}>
+          <Trend />
+        </Col>
       </Row>
     </Affix>
   }

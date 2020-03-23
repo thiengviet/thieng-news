@@ -92,9 +92,11 @@ class BottomDrawer extends Component {
       bodyStyle={{ padding: "0px 24px" }}
     >
       <Row>
-        {this.props.children}
+        <Col span={24}>
+          {this.props.children}
+        </Col>
       </Row>
-    </Drawer>
+    </Drawer >
   }
 }
 

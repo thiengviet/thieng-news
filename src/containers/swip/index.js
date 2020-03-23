@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
-import { Row, Col } from 'antd';
+import { Row } from 'antd';
 import { setSwipIndex } from 'modules/ui.reducer';
 
 
@@ -45,7 +45,10 @@ class Swip extends Component {
     let responsiveViews = children.map(view => this.readResponsiveProps(view.props)[type]);
     let groups = this.calculateGroupViews(responsiveViews);
     return groups.map((group, index) => {
-      return <Row key={index} justify="center">
+      return <Row
+        key={index}
+        justify="center"
+        gutter={this.props.gutter}>
         {group.map(view => children[view.index])}
       </Row>
     });
@@ -64,6 +67,7 @@ class Swip extends Component {
         enableMouseEvents
         index={defaultIndex}
         slideClassName="ant-col ant-col-24"
+        slideStyle={{ height: "100vh", overflowX: "hidden" }}
         onChangeIndex={this.onChange}
       >
         {children}
@@ -82,6 +86,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 Swip.defaultProps = {
   defaultIndex: 0,
+  gutter: [0, 0]
 }
 
 Swip.propTypes = {
@@ -90,30 +95,10 @@ Swip.propTypes = {
     PropTypes.array,
   ]),
   defaultIndex: PropTypes.number,
+  gutter: PropTypes.array,
 }
 
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(Swip));
-
-
-/**
- * Child view
- */
-function SwipChild(props) {
-  return <Col {...props} />
-}
-SwipChild.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array,
-  ]),
-  xs: PropTypes.number,
-  sm: PropTypes.number,
-  md: PropTypes.number,
-  lg: PropTypes.number,
-  xl: PropTypes.number,
-  xxl: PropTypes.number,
-}
-export { SwipChild }

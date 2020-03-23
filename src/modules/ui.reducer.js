@@ -21,13 +21,13 @@ export const SET_SCREEN_FAIL = 'SET_SCREEN_FAIL';
 const getCode = (value) => {
   if (value < 576)
     return 'xs';
-  if (value < 769)
+  if (value < 768)
     return 'sm';
-  if (value < 993)
+  if (value < 992)
     return 'md';
-  if (value < 1201)
+  if (value < 1200)
     return 'lg';
-  if (value < 1601)
+  if (value < 1600)
     return 'xl';
   return 'xxl';
 }

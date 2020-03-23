@@ -2,46 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import Swip, { SwipChild } from 'containers/swip';
-import { Row, Col } from 'antd';
+import Swip from 'containers/swip';
+import { Row, Col, Affix } from 'antd';
 import Explorer from 'containers/explorer';
 import Newsfeed from 'containers/newsfeed';
 import RightSider from 'containers/rightsider';
+import themes from 'static/styles/themes';
 
 class Experimental extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      data: 'Typography'
-    }
-  }
 
   render() {
     return <Row justify="center">
-      <Col xs={24} lg={20} xl={18}>
-        <Swip defaultIndex={1}>
-          <SwipChild xs={24} md={8}>
-            <Row justify="center">
-              <Col xs={22}>
-                <Explorer />
-              </Col>
-            </Row>
-          </SwipChild>
-          <SwipChild xs={24} md={12}>
-            <Row justify="center">
-              <Col xs={22}>
-                <Newsfeed />
-              </Col>
-            </Row>
-          </SwipChild>
-          <SwipChild xs={24} md={4}>
-            <Row justify="center">
-              <Col xs={22}>
-                <RightSider />
-              </Col>
-            </Row>
-          </SwipChild>
+      <Col xs={24}>
+        <Swip
+          defaultIndex={1}
+          gutter={[themes.globalHorizontalGutter, 0]}
+        >
+          <Col xs={22} md={22} xl={8}>
+            <Explorer />
+          </Col>
+          <Col xs={22} md={14} xl={10}>
+            <Newsfeed />
+          </Col>
+          <Col xs={22} md={8} xl={4}>
+            <Affix>
+              <RightSider />
+            </Affix>
+          </Col>
         </Swip>
       </Col>
     </Row>
