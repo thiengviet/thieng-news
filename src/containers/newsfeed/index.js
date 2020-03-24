@@ -17,11 +17,6 @@ class NewsFeed extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.ui.scrollEnd !== this.props.ui.scrollEnd && this.props.ui.scrollEnd)
-      this.setState({ total: this.state.total + 5 });
-  }
-
   render() {
     return <Row gutter={[8, themes.globalVerticalGutter]} justify="center">
       <Col span={24}>

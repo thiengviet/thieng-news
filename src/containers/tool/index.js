@@ -10,8 +10,15 @@ import themes from 'static/styles/themes';
 class Tool extends Component {
 
   render() {
-    return <Affix >
-      <Row gutter={[0, themes.globalVerticalGutter]} justify="end">
+    return <Affix>
+      <Row
+        gutter={[0, themes.globalVerticalGutter]}
+        justify="end"
+        style={{
+          height: `calc(100vh - ${themes.globalHeaderHeight}px`,
+          overflowY: 'auto'
+        }}
+      >
         <Col span={24}>
           <Typography.Title>Logo Here</Typography.Title>
         </Col>

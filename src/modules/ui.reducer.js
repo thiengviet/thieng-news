@@ -7,7 +7,6 @@ const defaultState = {
   width: 0,
   type: 'xs',
   swipIndex: 0,
-  scrollEnd: false,
 }
 
 
@@ -60,40 +59,6 @@ export const setScreen = (value) => {
   };
 };
 
-/**
- * Set scroll end
- */
-export const SET_SCROLL_END = 'SET_SCROLL_END';
-export const SET_SCROLL_END_OK = 'SET_SCROLL_END_OK';
-export const SET_SCROLL_END_FAIL = 'SET_SCROLL_END_FAIL';
-
-
-export const setScrollEnd = (value) => {
-  return dispatch => {
-    return new Promise((resolve, reject) => {
-      dispatch({ type: SET_SCROLL_END });
-
-      if (typeof (value) !== 'boolean') {
-        dispatch({
-          type: SET_SCROLL_END_FAIL,
-          reason: 'Invalid input type',
-          data: { ...defaultState }
-        });
-        return reject('Invalid input type');
-      }
-
-      let data = {
-        scrollEnd: value,
-      }
-      dispatch({
-        type: SET_SCROLL_END_OK,
-        reason: null,
-        data: data
-      });
-      return resolve(value);
-    });
-  };
-};
 
 /**
  * Set screen
@@ -135,10 +100,6 @@ export default (state = defaultState, action) => {
     case SET_SCREEN_OK:
       return { ...state, ...action.data };
     case SET_SCREEN_FAIL:
-      return { ...state, ...action.data };
-    case SET_SCROLL_END_OK:
-      return { ...state, ...action.data };
-    case SET_SCROLL_END_FAIL:
       return { ...state, ...action.data };
     case SET_SWIP_INDEX_OK:
       return { ...state, ...action.data };

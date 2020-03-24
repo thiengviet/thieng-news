@@ -31,7 +31,7 @@ class Header extends Component {
     return <Fragment>
       <Affix offsetBottom={0}>
         <Row justify="center" align="middle" style={{
-          height: "48px",
+          height: `${themes.globalHeaderHeight}px`,
           backgroundColor: themes.globalBodyBackgroundColor + "99",
           backdropFilter: "blur(2px)",
           WebkitBackdropFilter: "blur(2px)",

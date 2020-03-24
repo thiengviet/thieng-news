@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { Row } from 'antd';
 import { setSwipIndex } from 'modules/ui.reducer';
+import themes from 'static/styles/themes';
 
 
 /**
@@ -66,8 +67,12 @@ class Swip extends Component {
         disableLazyLoading
         enableMouseEvents
         index={defaultIndex}
+        style={{ overflow: "hidden" }}
         slideClassName="ant-col ant-col-24"
-        slideStyle={{ height: "100vh", overflowX: "hidden" }}
+        slideStyle={{
+          height: `calc(100vh - ${themes.globalHeaderHeight}px`,
+          overflowX: "hidden"
+        }}
         onChangeIndex={this.onChange}
       >
         {children}

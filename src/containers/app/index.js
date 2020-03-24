@@ -6,8 +6,7 @@ import { Row, Col } from 'antd';
 import 'static/styles/index.css'
 import Header from 'containers/header';
 import Home from 'containers/home';
-
-import { setScreen, setScrollEnd } from 'modules/ui.reducer';
+import { setScreen } from 'modules/ui.reducer';
 
 class App extends Component {
   constructor(props) {
@@ -19,18 +18,10 @@ class App extends Component {
     window.onresize = () => {
       this.props.setScreen(window.innerWidth);
     }
-    window.onscroll = () => {
-      let currentY = window.innerHeight + window.scrollY;
-      let maxY = document.getElementById("root").offsetHeight;
-      if (currentY >= maxY && !this.props.ui.scrollEnd)
-        return this.props.setScrollEnd(true);
-      else if (this.props.ui.scrollEnd)
-        return this.props.setScrollEnd(false);
-    }
   }
 
   render() {
-    return <Row justify="center" style={{ overflowX: "hidden" }}>
+    return <Row justify="center" style={{ overflow: "hidden" }}>
       <Col xs={24}>
         <Switch>
           <Redirect exact from="/" to="/home" />
@@ -51,7 +42,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   setScreen,
-  setScrollEnd,
 }, dispatch);
 
 export default withRouter(connect(

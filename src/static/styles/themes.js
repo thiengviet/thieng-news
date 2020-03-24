@@ -7,6 +7,7 @@ const globalConfig = {
     md: 48, lg: 48,
     xl: 72, xxl: 128
   },
+  globalHeaderHeight: 48,
   globalVerticalGutter: 64,
   globalBodyBackgroundColor: "#f3f8fe",
   globalPrimaryColor: "#ff3e3c",

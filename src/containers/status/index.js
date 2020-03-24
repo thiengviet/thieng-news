@@ -12,7 +12,6 @@ import moment from 'moment';
 import themes from 'static/styles/themes';
 import Shelf from './shelf';
 import { Parallax } from 'rc-scroll-anim';
-import LazyLoad from 'react-lazyload';
 
 
 class Status extends Component {
@@ -45,7 +44,7 @@ class Status extends Component {
       <Parallax animation={{ y: 0 }}
         style={{ transform: "translateY(50px)", width: "100%" }} >
         <Col xs={24}>
-          <ImageCard src={this.getRandImg()} onClick={this.onOpen} lazy />
+          <ImageCard src={this.getRandImg()} onClick={this.onOpen} />
         </Col>
       </Parallax>
       <Parallax animation={{ y: 0 }}
@@ -68,9 +67,7 @@ class Status extends Component {
           </Row>
         </Col>
       </Parallax>
-      <LazyLoad height={500} offset={500}>
-        <Shelf visible={this.state.visible} onClose={this.onClose} />
-      </LazyLoad>
+      <Shelf visible={this.state.visible} onClose={this.onClose} />
     </Row>
   }
 }

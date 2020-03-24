@@ -4,9 +4,7 @@ import {
   Row, Col, Card,
   Typography, Badge
 } from 'antd';
-import TweenOne from 'rc-tween-one';
 import { CircleSpin } from 'components/spins';
-import LazyLoad from 'react-lazyload';
 import { NeonAvatar } from 'components/avatars';
 import { IoIosAdd } from "react-icons/io";
 import { IconOnlyButton } from 'components/buttons';
@@ -65,47 +63,36 @@ function ImageCard(props) {
     setLoading(false);
   }
 
-  const MainComponent = <Card
+  return <Card
     hoverable={true}
     onClick={props.onClick}
   >
-    <TweenOne
-      animation={{ opacity: 1, duration: 300 }}
-      paused={loading}
-      style={{ opacity: 0 }}
-    >
-      <img
-        alt={props.src}
-        src={props.src}
-        style={{
-          borderRadius: themes.globalRadius,
-          width: "calc(100% + 48px)",
-          height: "auto",
-          margin: "-24px -24px",
-          display: loading ? "none" : "block"
-        }}
-        onLoad={imgLoaded}
-      />
-    </TweenOne>
+    <img
+      alt={props.src}
+      src={props.src}
+      style={{
+        borderRadius: themes.globalRadius,
+        width: "calc(100% + 48px)",
+        height: "auto",
+        margin: "-24px -24px",
+        display: loading ? "none" : "block"
+      }}
+      onLoad={imgLoaded}
+    />
     {loading ? <Row justify="center">
       <Col flex="0 1 auto">
         <CircleSpin />
       </Col>
     </Row> : null}
   </Card>
-
-  if (props.lazy) return <LazyLoad height={500} offset={500} once children={MainComponent} />
-  else return MainComponent
 }
 
 ImageCard.defaultProps = {
-  lazy: false,
   onClick: () => { },
 }
 
 ImageCard.propTypes = {
   src: PropTypes.string.isRequired,
-  lazy: PropTypes.bool,
   onClick: PropTypes.func,
 }
 
