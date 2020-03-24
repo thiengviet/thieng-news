@@ -1,3 +1,11 @@
+/* Turn off scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+}
+
 /* Fix Row Margin */
 .ant-row {
   margin-top: 0px !important;
