@@ -11,7 +11,6 @@ import { loremIpsum } from "lorem-ipsum";
 import moment from 'moment';
 import themes from 'static/styles/themes';
 import Shelf from './shelf';
-import { Parallax } from 'rc-scroll-anim';
 
 
 class Status extends Component {
@@ -41,32 +40,26 @@ class Status extends Component {
 
   render() {
     return <Row gutter={[0, themes.globalVerticalGutter]}>
-      <Parallax animation={{ y: 0 }}
-        style={{ transform: "translateY(50px)", width: "100%" }} >
-        <Col xs={24}>
-          <ImageCard src={this.getRandImg()} onClick={this.onOpen} />
-        </Col>
-      </Parallax>
-      <Parallax animation={{ y: 0 }}
-        style={{ transform: "translateY(30px)", width: "100%" }} >
-        <Col xs={24}>
-          <Row gutter={[0, 0]}>
-            <Col xs={24}>
-              <StandardComment
-                avatar='https://source.unsplash.com/random?portrait'
-                name={'Lionel Messi'}
-                content={loremIpsum({ count: 2, units: 'sentence' })}
-                time={moment().fromNow()} />
-            </Col>
-            <Col xs={24}>
-              <Action
-                onShare={() => { }}
-                onLike={() => { }}
-                onComment={this.onOpen} />
-            </Col>
-          </Row>
-        </Col>
-      </Parallax>
+      <Col xs={24}>
+        <ImageCard src={this.getRandImg()} onClick={this.onOpen} />
+      </Col>
+      <Col xs={24}>
+        <Row gutter={[0, 0]}>
+          <Col xs={24}>
+            <StandardComment
+              avatar='https://source.unsplash.com/random?portrait'
+              name={'Lionel Messi'}
+              content={loremIpsum({ count: 2, units: 'sentence' })}
+              time={moment().fromNow()} />
+          </Col>
+          <Col xs={24}>
+            <Action
+              onShare={() => { }}
+              onLike={() => { }}
+              onComment={this.onOpen} />
+          </Col>
+        </Row>
+      </Col>
       <Shelf visible={this.state.visible} onClose={this.onClose} />
     </Row>
   }
