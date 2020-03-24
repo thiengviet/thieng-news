@@ -9,7 +9,7 @@ import Network from 'containers/network';
 import Status from 'containers/status';
 
 
-class Explorer extends Component {
+class Discover extends Component {
   constructor() {
     super();
 
@@ -47,4 +47,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Explorer));
+)(Discover));
