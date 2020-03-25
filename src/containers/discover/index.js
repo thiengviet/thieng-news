@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { Row, Col } from 'antd';
+import { Row, Col, Typography } from 'antd';
 import themes from 'static/styles/themes';
 import News from 'containers/news';
 import Network from 'containers/network';
 import Status from 'containers/status';
+import Search from 'containers/search';
+import Trend from 'containers/trend';
 
 
 class Discover extends Component {
@@ -19,7 +21,16 @@ class Discover extends Component {
   }
 
   render() {
-    return <Row gutter={[0, themes.globalVerticalGutter]}>
+    return <Row gutter={[0, themes.globalVerticalGutter]} justify="end" >
+      <Col span={24}>
+        <Typography.Title>Logo Here</Typography.Title>
+      </Col>
+      <Col span={24}>
+        <Search />
+      </Col>
+      <Col span={20}>
+        <Trend />
+      </Col>
       <Col span={24}>
         <News />
       </Col>
@@ -39,6 +50,7 @@ class Discover extends Component {
 }
 
 const mapStateToProps = state => ({
+  ui: state.ui
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
