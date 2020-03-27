@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import Newsfeed from 'containers/newsfeed';
-import Discover from 'containers/discover';
 import themes from 'static/styles/themes';
 import Swip from 'containers/swip';
+import Statiz from 'containers/statiz';
+import Dynamiz from 'containers/dynamiz';
 
 class Home extends Component {
 
@@ -17,11 +17,11 @@ class Home extends Component {
           defaultIndex={1}
           gutter={[themes.globalHorizontalGutter, 0]}
         >
-          <Col xs={22} md={9} xl={8}>
-            <Discover />
+          <Col xs={22} md={8} xl={6}>
+            <Statiz />
           </Col>
-          <Col xs={22} md={11} xl={12}>
-            <Newsfeed />
+          <Col xs={22} md={14} xl={16}>
+            <Dynamiz />
           </Col>
         </Swip>
       </Col>

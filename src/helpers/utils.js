@@ -1,4 +1,4 @@
-let Utils = function () { }
+const Utils = function () { }
 
 Utils.scrollTop = () => {
   let root = document.getElementById("root");
