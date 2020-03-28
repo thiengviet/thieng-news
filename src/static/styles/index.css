@@ -1,10 +1,10 @@
 /* Turn off scrollbar */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
 }
 * {
   scrollbar-width: none;
-}
+} */
 
 /* Fix Row Margin */
 .ant-row {

@@ -16,7 +16,8 @@ class Dynamiz extends Component {
     super();
 
     this.state = {
-      newfeeds: [0, 1, 1, 2, 2, 1, 3, 1, 1, 2, 1, 2, 1, 3, 2, 1]
+      left: [0],
+      right: [],
     }
   }
 
@@ -35,12 +36,52 @@ class Dynamiz extends Component {
     }
   }
 
+  onScroll = () => {
+    const component = document.querySelector('#dynamiz');
+    const coordinates = component.getBoundingClientRect();
+    if (coordinates.height + coordinates.top - window.innerHeight <= 0) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(this.loadData, 1000);
+    }
+  }
+
+  getRandStatus = () => {
+    return Math.floor(Math.random() * 10) % 3 + 1;
+  }
+
+  loadData = () => {
+    const { type } = this.props.ui;
+    let { left, right } = this.state;
+    const leftHeight = document.querySelector('#left-dynamiz').offsetHeight;
+    const rightHeight = document.querySelector('#right-dynamiz').offsetHeight;
+    let distribution = (leftHeight - rightHeight) / (450 * 2);
+    for (let i = -5; i < 5; i++) {
+      if (type === 'xl' || type === 'xxl') {
+        if (i > distribution) left.push(this.getRandStatus());
+        else right.push(this.getRandStatus());
+      }
+      else {
+        right.push(this.getRandStatus());
+      }
+    }
+    return this.setState({ left, right });
+  }
+
+  componentDidMount() {
+    this.loadData();
+    window.addEventListener('scroll', this.onScroll, true);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
   render() {
-    return <Row gutter={[themes.globalHorizontalGutter, 0]}>
+    return <Row id="dynamiz" gutter={[themes.globalHorizontalGutter, 0]}>
       <Col xs={24} xl={12}>
-        <Row gutter={[0, themes.globalVerticalGutter]}>
+        <Row id="left-dynamiz" gutter={[0, themes.globalVerticalGutter]}>
           {
-            this.state.newfeeds.filter((id, i) => i % 2 === 0).map((id, i) => {
+            this.state.left.map((id, i) => {
               return <Col key={i} span={24}>
                 {this.getCard(id)}
               </Col>
@@ -49,9 +90,9 @@ class Dynamiz extends Component {
         </Row>
       </Col>
       <Col xs={24} xl={12}>
-        <Row gutter={[0, themes.globalVerticalGutter]}>
+        <Row id="right-dynamiz" gutter={[0, themes.globalVerticalGutter]}>
           {
-            this.state.newfeeds.filter((id, i) => i % 2 === 1).map((id, i) => {
+            this.state.right.map((id, i) => {
               return <Col key={i} span={24}>
                 {this.getCard(id)}
               </Col>
